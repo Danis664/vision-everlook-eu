@@ -1,0 +1,383 @@
+/* Vision Forever — presentation-only theme.
+ * Palette, texture and ornamental frame reference:
+ * https://worldofwarcraft.blizzard.com/de-de/forever
+ * Existing roster, authentication, data and class/spec rules are not changed.
+ */
+body.visionForeverTheme {
+  --vf-paper: #170e09;
+  --vf-blue: #114f72;
+  --vf-blue-dark: #09344c;
+  --vf-blue-deep: #063149;
+  --vf-teal: #0f6064;
+  --vf-ivory: #f3eee2;
+  --vf-sand: #e2c2ab;
+  --vf-muted: #bdb9b0;
+  --vf-bronze: #a58255;
+  --vf-border: #796346;
+  --vf-paper-image: url('https://blz-contentstack-images.akamaized.net/v3/assets/blt9c12f249ac15c7ec/blt3be5fbbd8ab0160d/6a9bc736f8f1240c84bcb8fd/paper-bg.jpg');
+  --vf-frame-image: url('https://blz-contentstack-images.akamaized.net/v3/assets/blt9c12f249ac15c7ec/blt074e6f6916f8079d/6aa0acc48102310c7781e19d/Camelot_border.png');
+  --vf-divider-image: url('https://blz-contentstack-images.akamaized.net/v3/assets/blt9c12f249ac15c7ec/bltd77589fdba20971a/6a95c7142924f5bf988aa8bc/camelot-divider.png');
+  color: var(--vf-ivory);
+  background: var(--vf-paper);
+  font-family: 'Open Sans', 'Segoe UI', Arial, sans-serif;
+  color-scheme: dark;
+}
+body.visionForeverTheme .mopPage,
+body.visionForeverTheme .foreverPage {
+  background-color: var(--vf-paper);
+  background-image: var(--vf-paper-image);
+  background-size: 1600px auto;
+  background-position: center top;
+}
+body.visionForeverTheme .mopPage::before,
+body.visionForeverTheme .mistLayer,
+body.visionForeverTheme .mountain,
+body.visionForeverTheme .pagoda,
+body.visionForeverTheme .moonGlow { display: none; }
+body.visionForeverTheme .guildWindow {
+  border: 1px solid var(--vf-bronze);
+  border-radius: 0;
+  background: var(--vf-paper);
+  box-shadow: 0 16px 64px #0008, inset 0 0 0 4px #170e09, inset 0 0 0 5px #79634688;
+}
+body.visionForeverTheme .guildWindow::before,
+body.visionForeverTheme .guildWindow::after {
+  border-radius: 0;
+  border-color: var(--vf-sand);
+}
+body.visionForeverTheme .guildHero {
+  background: linear-gradient(115deg, var(--vf-blue-deep), var(--vf-blue));
+  border-color: var(--vf-bronze);
+}
+body.visionForeverTheme .heroScene {
+  opacity: 1;
+  background: var(--vf-paper-image) center / cover;
+  mix-blend-mode: soft-light;
+}
+body.visionForeverTheme .heroScene::after { background: none; }
+body.visionForeverTheme .heroContent { position: relative; isolation: isolate; }
+body.visionForeverTheme .heroContent::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: 6px;
+  background: var(--vf-frame-image) center / 100% 100% no-repeat;
+  pointer-events: none;
+}
+body.visionForeverTheme .visionCrest {
+  width: 180px;
+  height: 180px;
+  flex-basis: 180px;
+}
+body.visionForeverTheme .epicCrestImage {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  filter: none !important;
+  transform: none !important;
+  border: 0;
+}
+body.visionForeverTheme .miniCrest,
+body.visionForeverTheme .miniCrest .visionCrest {
+  width: 120px;
+  height: 120px;
+  flex-basis: 120px;
+}
+body.visionForeverTheme .miniCrest .epicCrestImage { width: 120px; height: 120px; }
+body.visionForeverTheme .brandCopy h1,
+body.visionForeverTheme .panelHeading h2,
+body.visionForeverTheme .classPageIntro h2,
+body.visionForeverTheme .insightIntro h2,
+body.visionForeverTheme .foreverMatrixCard h3,
+body.visionForeverTheme .classSectionHeading h3,
+body.visionForeverTheme .insightDetails h3 {
+  color: var(--vf-ivory);
+  background: linear-gradient(180deg, var(--vf-ivory), var(--vf-sand));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: none;
+}
+body.visionForeverTheme .brandCopy small,
+body.visionForeverTheme .brandCopy p { color: var(--vf-ivory); }
+body.visionForeverTheme .brandCopy small { letter-spacing: .1em; }
+body.visionForeverTheme .wowTabs {
+  border: 1px solid var(--vf-bronze);
+  border-radius: 0;
+  background: #061f30e8;
+}
+body.visionForeverTheme .wowTabs a {
+  color: var(--vf-ivory);
+  border-color: #a5825544;
+  font-weight: 700;
+}
+body.visionForeverTheme .wowTabs a:hover,
+body.visionForeverTheme .wowTabs a.active {
+  color: var(--vf-ivory);
+  background: var(--vf-blue);
+}
+body.visionForeverTheme .wowTabs a.active::after { background: var(--vf-sand); box-shadow: none; }
+body.visionForeverTheme .statCard {
+  border-color: var(--vf-bronze);
+  border-radius: 0;
+  background: #072b40ed;
+  box-shadow: inset 0 0 0 3px #061b28, inset 0 0 0 4px #a5825533;
+}
+body.visionForeverTheme .statCard span { color: var(--vf-muted); }
+body.visionForeverTheme .statCard strong { color: var(--vf-ivory); }
+body.visionForeverTheme .goldRail {
+  height: 12px;
+  background: var(--vf-divider-image) center / auto 100% repeat-x;
+  box-shadow: none;
+}
+body.visionForeverTheme .goldRail span { display: none; }
+body.visionForeverTheme .foreverFactRail {
+  background: var(--vf-blue-dark);
+  border-color: var(--vf-border);
+  color: var(--vf-ivory);
+}
+body.visionForeverTheme .foreverFactRail b { color: var(--vf-sand); }
+body.visionForeverTheme .foreverFactRail em { color: #d2d5d1; }
+body.visionForeverTheme .commandBar {
+  background: #1d1711;
+  border-color: var(--vf-border);
+  flex-wrap: wrap;
+}
+body.visionForeverTheme .commandTitle { color: var(--vf-sand); }
+body.visionForeverTheme .commandTitle strong { color: var(--vf-ivory); }
+body.visionForeverTheme .commandTitle span { color: var(--vf-muted); }
+body.visionForeverTheme .searchField {
+  border: 1px solid var(--vf-border);
+  border-radius: 0;
+  background: #0b2635;
+  color: var(--vf-sand);
+}
+body.visionForeverTheme .searchField input { color: var(--vf-ivory); }
+body.visionForeverTheme .searchField input::placeholder { color: #b1b9bc; }
+body.visionForeverTheme .searchField kbd { color: var(--vf-ivory); background: #09344c; border-color: var(--vf-border); border-radius: 0; }
+body.visionForeverTheme .workspace,
+body.visionForeverTheme .classPage,
+body.visionForeverTheme .insightPage {
+  background: #170e09f2;
+}
+body.visionForeverTheme .panelHeading span,
+body.visionForeverTheme .classEyebrow,
+body.visionForeverTheme .insightEyebrow { color: var(--vf-sand); }
+body.visionForeverTheme .panelHeading b { background: var(--vf-blue-dark); color: var(--vf-ivory); border-color: var(--vf-bronze); border-radius: 0; }
+body.visionForeverTheme .rosterScroll {
+  border: 1px solid var(--vf-bronze);
+  border-radius: 0;
+  background: #171411;
+  scrollbar-color: var(--vf-bronze) #170e09;
+  scrollbar-width: thin;
+  overscroll-behavior-x: contain;
+}
+body.visionForeverTheme .rosterHeaderRow {
+  background: var(--vf-blue-dark);
+  color: var(--vf-ivory);
+  border-color: var(--vf-bronze);
+}
+body.visionForeverTheme .rosterHeaderRow span { border-color: #e2c2ab24; }
+body.visionForeverTheme .groupBanner {
+  background: linear-gradient(90deg, var(--vf-blue-deep), var(--vf-blue-dark));
+  border-bottom: 1px solid var(--vf-border);
+  color: var(--vf-ivory);
+}
+body.visionForeverTheme .groupGlyph { background: #092638; border-color: var(--vf-bronze); border-radius: 0; color: var(--vf-sand); }
+body.visionForeverTheme .groupBanner > span { color: var(--vf-sand); }
+body.visionForeverTheme .dpsSubBanner { background: #0e2732; color: #d9d9cc; border-color: #79634666; }
+body.visionForeverTheme .dpsSubBanner strong { color: var(--vf-ivory); }
+body.visionForeverTheme .dpsSubBanner span { background: #0b1e28; border-color: var(--vf-border); color: var(--vf-sand); }
+body.visionForeverTheme .memberRow {
+  color: var(--vf-ivory);
+  background: #1b1813;
+  border-color: #79634640;
+}
+body.visionForeverTheme .memberRow:nth-child(even) { background: #201e19; }
+body.visionForeverTheme .memberRow:hover {
+  background: #123042;
+  transform: none;
+  box-shadow: inset 3px 0 var(--class-color, #e2c2ab);
+}
+body.visionForeverTheme .memberRow > div { border-color: #79634626; }
+body.visionForeverTheme .characterCell a,
+body.visionForeverTheme .characterCell > span { color: var(--vf-ivory); }
+body.visionForeverTheme .realName { color: #cdc5b9; }
+body.visionForeverTheme .specCell,
+body.visionForeverTheme .offSpecCell,
+body.visionForeverTheme .professionCell,
+body.visionForeverTheme .raceCell { background: #0b2635; border-color: #8a75564d; color: #ded8c8; border-radius: 2px; }
+body.visionForeverTheme .roleCell { background: #103338; border-color: #617e7166; color: #e1e8df; border-radius: 2px; }
+body.visionForeverTheme .localGameIcon { border-radius: 2px; }
+body.visionForeverTheme .wowClassIcon img { border-radius: 1px; }
+/* Semantic class, role, rank and unknown/error colours are intentionally retained. */
+body.visionForeverTheme .unknownBadge { border-radius: 2px; }
+body.visionForeverTheme .pauseToggle {
+  background: var(--vf-blue-dark);
+  border-color: var(--vf-bronze);
+  border-radius: 0;
+  color: var(--vf-ivory);
+}
+body.visionForeverTheme .pauseToggle > span,
+body.visionForeverTheme .pauseToggle strong { color: var(--vf-ivory); }
+body.visionForeverTheme .pauseToggle:hover { background: var(--vf-blue); }
+body.visionForeverTheme .guildCard,
+body.visionForeverTheme .sidePanel,
+body.visionForeverTheme .classCompositionCard,
+body.visionForeverTheme .classDevelopmentCard,
+body.visionForeverTheme .foreverMatrixCard,
+body.visionForeverTheme .insightChartCard,
+body.visionForeverTheme .insightBarsCard,
+body.visionForeverTheme .classOverviewCard,
+body.visionForeverTheme .insightDetailCard {
+  border-color: var(--vf-bronze);
+  border-radius: 0;
+  background: #0b293b;
+}
+body.visionForeverTheme .guildCard {
+  position: relative;
+  background: var(--vf-blue-dark);
+  padding: 24px 18px;
+}
+body.visionForeverTheme .guildCard::after {
+  content: '';
+  position: absolute;
+  inset: 3px;
+  pointer-events: none;
+  background: var(--vf-frame-image) center / 100% 100% no-repeat;
+}
+body.visionForeverTheme .guildCard h3 { color: var(--vf-ivory); }
+body.visionForeverTheme .guildCard p,
+body.visionForeverTheme .guildCard dt { color: var(--vf-muted); }
+body.visionForeverTheme .guildCard dd { color: var(--vf-ivory); }
+body.visionForeverTheme .sidePanel > header,
+body.visionForeverTheme .classCompositionCard > header,
+body.visionForeverTheme .classDevelopmentCard > header,
+body.visionForeverTheme .foreverMatrixCard > header,
+body.visionForeverTheme .insightChartCard > header,
+body.visionForeverTheme .insightBarsCard > header {
+  background: var(--vf-blue-dark);
+  border-color: var(--vf-border);
+}
+body.visionForeverTheme .sidePanel header h3,
+body.visionForeverTheme .classCompositionCard h3,
+body.visionForeverTheme .classDevelopmentCard h3,
+body.visionForeverTheme .insightChartCard h3,
+body.visionForeverTheme .insightBarsCard h3 { color: var(--vf-ivory); }
+body.visionForeverTheme .sidePanel header span,
+body.visionForeverTheme .classCompositionCard header > span,
+body.visionForeverTheme .classDevelopmentCard header > span { color: var(--vf-sand); }
+body.visionForeverTheme .classGrid { background: #082233; }
+body.visionForeverTheme .classCount { background: #0a2a3a; border-color: #a5825533; }
+body.visionForeverTheme .classCount strong,
+body.visionForeverTheme .rankLine strong,
+body.visionForeverTheme .roleBarTop strong { color: var(--vf-ivory); }
+body.visionForeverTheme .roleBar small { color: #acb9b9; }
+body.visionForeverTheme .barTrack { background: #071a24; border-color: #79634666; }
+body.visionForeverTheme .barTrack i { background: linear-gradient(90deg, #0f6064, #64a8b6); }
+body.visionForeverTheme .sidebarNote,
+body.visionForeverTheme .classDataNote,
+body.visionForeverTheme .insightDataNote { background: #1b1813; border-color: var(--vf-border); border-radius: 0; color: #cdc5b9; }
+body.visionForeverTheme .sidebarNote > span { background: var(--vf-blue); color: var(--vf-ivory); }
+body.visionForeverTheme .sidebarNote p { color: #cdc5b9; }
+body.visionForeverTheme .classBackLink,
+body.visionForeverTheme .insightBackLink { color: var(--vf-sand); }
+body.visionForeverTheme .classPageStats > div,
+body.visionForeverTheme .insightTopStats > div { background: var(--vf-blue-deep); border-color: var(--vf-border); border-radius: 0; }
+body.visionForeverTheme .raceMatrix article { background: #0b293b; }
+body.visionForeverTheme .adminEntry,
+body.visionForeverTheme .adminTool,
+body.visionForeverTheme .adminPrimary {
+  border: 1px solid var(--vf-sand);
+  border-radius: 0;
+  background: var(--vf-blue);
+  color: var(--vf-ivory);
+  box-shadow: inset 0 0 0 3px #114f72, inset 0 0 0 4px #f3eee240;
+}
+body.visionForeverTheme .adminEntry:hover,
+body.visionForeverTheme .adminTool:hover,
+body.visionForeverTheme .adminPrimary:hover { background: #16628b; }
+body.visionForeverTheme .adminEntry.active { background: var(--vf-teal); border-color: var(--vf-sand); }
+body.visionForeverTheme .adminOverlay { background: #061018d9; }
+body.visionForeverTheme .adminLoginWindow,
+body.visionForeverTheme .accountWindow {
+  border: 1px solid var(--vf-sand);
+  border-radius: 0;
+  background: var(--vf-blue-deep);
+  box-shadow: inset 0 0 0 4px #092638, inset 0 0 0 5px #a5825588, 0 22px 70px #0009;
+}
+body.visionForeverTheme .adminLoginWindow h3,
+body.visionForeverTheme .accountHeader h3,
+body.visionForeverTheme .accountPanel h4 { color: var(--vf-ivory); }
+body.visionForeverTheme .adminEyebrow,
+body.visionForeverTheme .accountHeader span,
+body.visionForeverTheme .adminLoginWindow label,
+body.visionForeverTheme .accountPanel label { color: var(--vf-sand); }
+body.visionForeverTheme .adminLoginWindow p,
+body.visionForeverTheme .accountPanel p { color: #c1c9c5; }
+body.visionForeverTheme .adminSeal { background: #072b3b; border-color: var(--vf-sand); color: var(--vf-ivory); box-shadow: none; }
+body.visionForeverTheme .accountHeader { background: var(--vf-blue-dark); border-color: var(--vf-border); }
+body.visionForeverTheme .accountPanel { background: #082738; border-color: var(--vf-border); border-radius: 0; }
+body.visionForeverTheme .editCell input,
+body.visionForeverTheme .editCell select,
+body.visionForeverTheme .adminLoginWindow input,
+body.visionForeverTheme .accountPanel input,
+body.visionForeverTheme .professionSelectButton {
+  background: #071e2b;
+  border-color: #8a7556;
+  border-radius: 2px;
+  color: var(--vf-ivory);
+  min-width: 0;
+}
+body.visionForeverTheme .professionPortalMenu { background: #092a3c; border-color: var(--vf-bronze); border-radius: 0; }
+body.visionForeverTheme .professionPortalMenu button { color: var(--vf-ivory); }
+body.visionForeverTheme .professionPortalMenu button:hover,
+body.visionForeverTheme .professionPortalMenu button.selected { background: var(--vf-blue); }
+body.visionForeverTheme .areaEditCell,
+body.visionForeverTheme .rosterHeaderRow.adminGrid > span:last-child { background: var(--vf-blue-dark); }
+body.visionForeverTheme :is(button, a, input, select):focus-visible { outline: 2px solid var(--vf-sand); outline-offset: 3px; }
+body.visionForeverTheme .guildFooter {
+  color: var(--vf-muted);
+  background: var(--vf-paper);
+  border: 0;
+  border-top: 10px solid transparent;
+  border-image: var(--vf-divider-image) 20 / 10px 0 0 / 0 repeat;
+}
+body.visionForeverTheme .guildFooter span { color: var(--vf-sand); }
+@media (max-width: 1450px) and (min-width: 901px) {
+  body.visionForeverTheme .heroStats { grid-row: 1; grid-column: 2; }
+  body.visionForeverTheme .wowTabs { justify-self: start; }
+}
+@media (max-width: 900px) {
+  body.visionForeverTheme .visionCrest { width: 118px; height: 118px; flex-basis: 118px; }
+  body.visionForeverTheme .epicCrestImage { width: 118px; height: 118px; }
+  body.visionForeverTheme .brandBlock { gap: 12px; }
+  body.visionForeverTheme .brandCopy { min-width: 0; }
+  body.visionForeverTheme .brandCopy h1 { font-size: clamp(32px, 9vw, 46px); }
+  body.visionForeverTheme .brandCopy small { font-size: 9px; letter-spacing: .035em; }
+  body.visionForeverTheme .brandCopy p { font-size: 13px; }
+  body.visionForeverTheme .wowTabs a { min-width: 0; padding: 12px 9px; flex: 1; text-align: center; }
+  body.visionForeverTheme .foreverFactRail { grid-template-columns: minmax(0,1fr) minmax(0,1fr); }
+  body.visionForeverTheme .foreverFactRail span { flex-wrap: wrap; }
+  body.visionForeverTheme .foreverFactRail em { text-align: left; }
+  body.visionForeverTheme .guildFooter { flex-wrap: wrap; gap: 9px; font-size: 9px; }
+  body.visionForeverTheme .guildFooter i { width: 16px; }
+}
+@media (max-width: 540px) {
+  body.visionForeverTheme .classPageStats,
+  body.visionForeverTheme .insightTopStats { grid-template-columns: minmax(0,1fr); }
+  body.visionForeverTheme .insightBarRow { grid-template-columns: 95px minmax(0,1fr); }
+  body.visionForeverTheme .insightNumbers { grid-column: 1 / -1; }
+  body.visionForeverTheme .insightPlayers > div,
+  body.visionForeverTheme .foreverModeratorCreate { grid-template-columns: minmax(0,1fr); }
+}
+@media (prefers-reduced-motion: reduce) {
+  body.visionForeverTheme *, body.visionForeverTheme *::before, body.visionForeverTheme *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
