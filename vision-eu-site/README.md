@@ -2,7 +2,7 @@
 
 ## Status
 
-Die Änderung ist auf Basis der tatsächlich ausgelieferten Website vorbereitet und im isolierten Browser geprüft. Sie ist noch nicht auf `vision-eu.de` eingespielt: SentinelX hat den Schreibversuch als `dry_run` mit `path_not_allowed` abgelehnt. Auch das angeforderte Zurücksetzen des Admin-Kennworts ist noch nicht ausgeführt. Dieses Repository enthält keine Kennwörter oder Kennworthashes.
+Am 11.11.2026 auf `vision-eu.de` eingespielt und anschließend live geprüft. Nach der gezielten Schreibfreigabe wurde die Website-Datei mit Sicherung und Prüfung des unveränderten Ausgangsstands aktualisiert. Der separat beauftragte Reset für das Admin-Konto Vision ist ausgeführt; die Anmeldung wurde erfolgreich geprüft, bestehende Sitzungen wurden über die Anwendung ungültig gemacht und die Prüfsitzung wurde abgemeldet. Dieses Repository enthält keine Kennwörter oder Kennworthashes.
 
 ## Roster
 
@@ -30,7 +30,9 @@ SHA-256 des geprüften Ausgangsstands: `2016688b2fc80fe597825e5008b1cf2be1d50d52
 
 Die bestehenden `/api/*`-Endpunkte, Backenddateien, lokalen Bilddateien und Roster-Daten bleiben auf dem Server. Dieser Branch ist kein vollständiges neues Vercel-Projekt. Automatische Vercel-Deployments sind nur für diesen Arbeitsbranch deaktiviert.
 
-Zum Einspielen fehlt in der bestehenden SentinelX-Konfiguration `file_ops.paths` die Freigabe `access: rw` für die Website-Zieldatei. Für den separat beauftragten Kennwort-Reset fehlt die Freigabe für `/srv/ashen-realms/vision-eu/data/users.json`; das Speichern dieser Datei benötigt zusätzlich die bereits vorhandene sudo-Funktion. Die vorhandenen Freigaben sind zu ergänzen, nicht zu ersetzen.
+Die zuvor fehlenden Schreibfreigaben wurden vom Eigentümer gezielt für die Website-Zieldatei und die Benutzerdatei erteilt und vor dem Einspielen geprüft. Sicherungen beider Dateien wurden erstellt; Dateieigentümer und Zugriffsrechte sind erhalten geblieben.
+
+SHA-256 der veröffentlichten Frontend-Datei: `c9af425e4681a36ffa36ffac2802918fa435e0938086e88afee1862e39b6a90f`. Der per HTTPS ausgelieferte Inhalt stimmt bytegenau damit überein.
 
 ## Validierung
 
@@ -41,5 +43,9 @@ Zum Einspielen fehlt in der bestehenden SentinelX-Konfiguration `file_ops.paths`
 - 61 aktive und 50 pausierte Mitglieder in der Vorschau geladen.
 - Guides: 9 Klassenkarten, 28 Spezialisierungslinks, korrigierte Dungeon-Werte. Klassenfilter und Suche nach „Heating Up“ funktionieren.
 - Die Vorschau lief ausschließlich in einem isolierten Browser; schreibende HTTP-Anfragen waren gesperrt. Es gab keine Änderungen an Live-Mitgliederdaten.
+- Nach dem Einspielen live bestätigt: 64 aktive und 50 pausierte Mitglieder, insgesamt 114. Website und Roster-API antworten mit HTTP 200.
+- Zusätzliche Live-Browserprüfung bei 1440, 1024 und 390 px: korrekte Spalten, Namensumbruch, keine horizontale Seitenüberbreite und keine beobachteten JavaScript-Fehler.
+- Roster-Daten, Backenddatei und die übrigen fünf Benutzerkonten sind anhand von Hashvergleichen unverändert. Die Benutzerdatei behält Modus 0600.
+- Admin-Anmeldung mit dem beauftragten Kennwort erfolgreich; Sitzungswiderruf und anschließende erneute Anmeldung sowie Abmeldung geprüft.
 
 ![Roster-Vorschau mit entfernten ST-/A/G-Spalten](review/roster-preview.jpg)
