@@ -1,0 +1,153 @@
+{
+  "checked_on": "2026-11-11",
+  "timezone": "Europe/Berlin",
+  "previous_live_guide_date": "2026-09-20",
+  "overview_reported_updated_on": "2026-09-15",
+  "overview": "https://wowtbc.gg/warcraftforever/news/what-we-know/",
+  "class_index": "https://wowtbc.gg/warcraftforever/class-guides/",
+  "dungeon_index": "https://wowtbc.gg/warcraftforever/loot-tables/dungeons/",
+  "bis_index": "https://wowtbc.gg/warcraftforever/bis-list/",
+  "talent_calculator": "https://wowtbc.gg/warcraftforever/talent-calculator/",
+  "raid_comp": "https://wowtbc.gg/warcraftforever/raid-comp/",
+  "changed_dungeon_levels": [
+    {
+      "name": "Ruins of Lordaeron",
+      "old": "15–20",
+      "new": "16–23"
+    },
+    {
+      "name": "Excavation Site: Wetlands",
+      "old": "24–29",
+      "new": "26–32"
+    },
+    {
+      "name": "City of Dalaran",
+      "old": "28–33",
+      "new": "28–34"
+    }
+  ],
+  "verified_class_guides": [
+    {
+      "slug": "balance-druid",
+      "url": "https://wowtbc.gg/warcraftforever/class-guides/balance-druid/"
+    },
+    {
+      "slug": "feral-tank-druid",
+      "url": "https://wowtbc.gg/warcraftforever/class-guides/feral-tank-druid/"
+    },
+    {
+      "slug": "feral-dps-druid",
+      "url": "https://wowtbc.gg/warcraftforever/class-guides/feral-dps-druid/"
+    },
+    {
+      "slug": "restoration-druid",
+      "url": "https://wowtbc.gg/warcraftforever/class-guides/restoration-druid/"
+    },
+    {
+      "slug": "beast-mastery-hunter",
+      "url": "https://wowtbc.gg/warcraftforever/class-guides/beast-mastery-hunter/"
+    },
+    {
+      "slug": "marksmanship-hunter",
+      "url": "https://wowtbc.gg/warcraftforever/class-guides/marksmanship-hunter/"
+    },
+    {
+      "slug": "survival-hunter",
+      "url": "https://wowtbc.gg/warcraftforever/class-guides/survival-hunter/"
+    },
+    {
+      "slug": "arcane-mage",
+      "url": "https://wowtbc.gg/warcraftforever/class-guides/arcane-mage/"
+    },
+    {
+      "slug": "fire-mage",
+      "url": "https://wowtbc.gg/warcraftforever/class-guides/fire-mage/"
+    },
+    {
+      "slug": "frost-mage",
+      "url": "https://wowtbc.gg/warcraftforever/class-guides/frost-mage/"
+    },
+    {
+      "slug": "holy-paladin",
+      "url": "https://wowtbc.gg/warcraftforever/class-guides/holy-paladin/"
+    },
+    {
+      "slug": "protection-paladin",
+      "url": "https://wowtbc.gg/warcraftforever/class-guides/protection-paladin/"
+    },
+    {
+      "slug": "retribution-paladin",
+      "url": "https://wowtbc.gg/warcraftforever/class-guides/retribution-paladin/"
+    },
+    {
+      "slug": "discipline-priest",
+      "url": "https://wowtbc.gg/warcraftforever/class-guides/discipline-priest/"
+    },
+    {
+      "slug": "holy-priest",
+      "url": "https://wowtbc.gg/warcraftforever/class-guides/holy-priest/"
+    },
+    {
+      "slug": "shadow-priest",
+      "url": "https://wowtbc.gg/warcraftforever/class-guides/shadow-priest/"
+    },
+    {
+      "slug": "assassination-rogue",
+      "url": "https://wowtbc.gg/warcraftforever/class-guides/assassination-rogue/"
+    },
+    {
+      "slug": "combat-rogue",
+      "url": "https://wowtbc.gg/warcraftforever/class-guides/combat-rogue/"
+    },
+    {
+      "slug": "subtlety-rogue",
+      "url": "https://wowtbc.gg/warcraftforever/class-guides/subtlety-rogue/"
+    },
+    {
+      "slug": "elemental-shaman",
+      "url": "https://wowtbc.gg/warcraftforever/class-guides/elemental-shaman/"
+    },
+    {
+      "slug": "enhancement-shaman",
+      "url": "https://wowtbc.gg/warcraftforever/class-guides/enhancement-shaman/"
+    },
+    {
+      "slug": "restoration-shaman",
+      "url": "https://wowtbc.gg/warcraftforever/class-guides/restoration-shaman/"
+    },
+    {
+      "slug": "affliction-warlock",
+      "url": "https://wowtbc.gg/warcraftforever/class-guides/affliction-warlock/"
+    },
+    {
+      "slug": "demonology-warlock",
+      "url": "https://wowtbc.gg/warcraftforever/class-guides/demonology-warlock/"
+    },
+    {
+      "slug": "destruction-warlock",
+      "url": "https://wowtbc.gg/warcraftforever/class-guides/destruction-warlock/"
+    },
+    {
+      "slug": "arms-warrior",
+      "url": "https://wowtbc.gg/warcraftforever/class-guides/arms-warrior/"
+    },
+    {
+      "slug": "fury-warrior",
+      "url": "https://wowtbc.gg/warcraftforever/class-guides/fury-warrior/"
+    },
+    {
+      "slug": "protection-warrior",
+      "url": "https://wowtbc.gg/warcraftforever/class-guides/protection-warrior/"
+    }
+  ],
+  "notes": [
+    "28 existing PvE guide links retained and read. New short German spec summaries in the existing expandable cards.",
+    "Level-30 Beta references removed; current guide pages expose Leveling 1-60 build tabs (e.g. Arms, Frost, Protection Paladin, Demonology).",
+    "Troll–Warlock is now present in both the overview and Demonology guide; the previous conflict statement was corrected.",
+    "Skyborne mage disagreement remains: overview limits mage to Alliance, while Frost guide includes Horde Windshaper Skyborne. It is explicitly preserved as a source discrepancy.",
+    "BiS index continues to state that item lists are not ordered by strength; existing warning remains.",
+    "Dungeon levels now follow the current loot index; the older overview still gives the previous numbers. UI states the provenance and discrepancy.",
+    "No claim was made that the unchanged 15 September overview has a newer publication date. No launch date assertions added.",
+    "User-facing paragraphs are original short German summaries; source articles and rotations are not copied."
+  ]
+}
