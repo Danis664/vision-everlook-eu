@@ -149,5 +149,14 @@
     "Dungeon levels now follow the current loot index; the older overview still gives the previous numbers. UI states the provenance and discrepancy.",
     "No claim was made that the unchanged 15 September overview has a newer publication date. No launch date assertions added.",
     "User-facing paragraphs are original short German summaries; source articles and rotations are not copied."
-  ]
+  ],
+  "armory": {
+    "checked_on": "2026-11-11",
+    "guild": "https://worldofwarcraft.blizzard.com/de-de/forever/eu/armory/guild/vision",
+    "example_character": "https://worldofwarcraft.blizzard.com/de-de/forever/eu/armory/character/zuku-vision",
+    "observed_members": 83,
+    "url_rule": "NFC, lowercase, whitespace to hyphen, encodeURIComponent; preserve accents; remove only trailing roster parenthetical annotations",
+    "legacy_matches": 37,
+    "legacy_match_rule": "Exact case-insensitive first name, exactly one match in the observed guild directory. Full roster names take precedence; no fuzzy matching. Missing or ambiguous names link to guild."
+  }
 }

@@ -1,4 +1,4 @@
-# Vision: Roster und Guides – 11. November 2026
+# Vision: Roster, Armory und Guides – 11. November 2026
 
 ## Status
 
@@ -10,6 +10,15 @@ Am 11.11.2026 auf `vision-eu.de` eingespielt und anschließend live geprüft. Na
 - Die Namensspalte erhält mehr Breite. Lange Namen können umbrechen; Namen mit Leerzeichen sind möglich.
 - Die Neuanlage zeigt den Platzhalter „z. B. Zuku Vision“. Bestehende Charakternamen werden nicht umbenannt.
 - Vorhandene ST-/AG-Werte werden beim Bearbeiten weiter erhalten; die gespeicherten Mitgliederdaten werden durch dieses Frontend-Update nicht migriert oder gelöscht.
+
+## Armory-Verlinkung
+
+- Charakternamen öffnen die Blizzard-Forever-Armory in einem neuen Tab, sowohl am Desktop als auch mobil und in Pause/Reserve. Die bisherigen Roster-Details bleiben über eine eigene ⓘ-Schaltfläche erreichbar.
+- Oberhalb des Rosters steht der Link „Gilden-Armory“. Auch die Detailansicht enthält einen Armory-Link.
+- Vollständige Namen erzeugen ihren Link dynamisch: Unicode-NFC, Kleinschreibung, Leerzeichen zu Bindestrichen, URI-Kodierung. Umlaute und Sonderbuchstaben bleiben erhalten. Abschließende Klammernotizen gehören nur zur Roster-Anzeige.
+- 37 ältere Einwortnamen sind anhand eindeutiger, exakt geschriebener Vornamen im Blizzard-Gildenverzeichnis zugeordnet. Diese Zuordnung ist eine Momentaufnahme vom 11.11.2026; ein vollständig eingetragener Name hat immer Vorrang.
+- Im geprüften Bestand ergeben sich 48 direkte Charakterlinks und 66 Links zur Gildenübersicht. Alle 48 direkten Ziele sind im beobachteten Blizzard-Verzeichnis mit 83 Mitgliedern enthalten. Mehrdeutige Einträge wie „Layelle“ und nicht zuordenbare Einwortnamen führen zur Gildenübersicht, bis der vollständige Name eingetragen wird.
+- Bestehende Namen werden nicht automatisch umbenannt; gespeichert wurden ausschließlich Änderungen an der Frontend-Datei. Der Roster-Hash vor und nach der Veröffentlichung ist unverändert.
 
 ## Guides Forever
 
@@ -32,9 +41,20 @@ Die bestehenden `/api/*`-Endpunkte, Backenddateien, lokalen Bilddateien und Rost
 
 Die zuvor fehlenden Schreibfreigaben wurden vom Eigentümer gezielt für die Website-Zieldatei und die Benutzerdatei erteilt und vor dem Einspielen geprüft. Sicherungen beider Dateien wurden erstellt; Dateieigentümer und Zugriffsrechte sind erhalten geblieben.
 
-SHA-256 der veröffentlichten Frontend-Datei: `c9af425e4681a36ffa36ffac2802918fa435e0938086e88afee1862e39b6a90f`. Der per HTTPS ausgelieferte Inhalt stimmt bytegenau damit überein.
+SHA-256 der veröffentlichten Frontend-Datei: `0c7fd2ef8fe35760b4da9f269dfdae63bc6e9b0e85de1a546a721c82be324ba3`. Der per HTTPS ausgelieferte Inhalt stimmt bytegenau damit überein.
 
 ## Validierung
+
+### Ergänzende Armory-Prüfung
+
+- Alle 83 beobachteten vollständigen Blizzard-Namen ergeben exakt die vom Gildenverzeichnis gelieferten URLs. Alle 37 übernommenen Vornamen sind innerhalb dieses Verzeichnisses eindeutig.
+- Isolierte Browservorschau bei 1440/1638 px und 390 px: richtige Links, erhaltene Namensumbrüche, keine horizontale Seitenüberbreite und keine verschachtelten Links/Schaltflächen.
+- Desktop- und mobile ⓘ-Schaltfläche öffnen die bestehende Detailansicht. Die Links für Zuku und die Gildenübersicht öffnen echte neue Tabs mit den erwarteten Blizzard-Seitentiteln.
+- 114 Einträge nach Öffnen von Pause/Reserve; 48 direkte Links und 66 Gildenlinks in beiden Darstellungen. Keine beobachteten JavaScript-Fehler während dieser Prüfung.
+- Frische öffentliche Live-Browserprüfung bei 1440 und 390 px bestätigt die 114 Einträge, 48 direkten Links und 66 Gildenlinks. Zuku, Styæ und Varkuun korrekt verlinkt; Details und Admin-Anmeldefenster öffnen. Keine Seitenüberbreite, keine beobachteten JavaScript-Fehler und keine schreibenden HTTP-Anfragen.
+- Atomare Veröffentlichung mit Prüfung des Ausgangsinhalts und automatischem Backup. Live-HTTP-Antwort 200; ausgelieferte Datei stimmt mit dem angegebenen SHA-256 überein. Keine Änderung an Roster- oder Benutzerdateien für diese Ergänzung.
+
+### Roster und Guides
 
 - Vollständiges Inline-JavaScript syntaktisch geprüft.
 - Browserprüfung der kombinierten Frontend-Datei bei 1638 px und 390 px; keine horizontale Seitenüberbreite.
