@@ -1,0 +1,393 @@
+--- a/index.html
++++ b/index.html
+@@ -123,9 +123,9 @@
+   max-width:100%!important;
+ }
+ 
+-/* View mode: original Everlook proportions, fitted to the panel. */
++/* View mode: the first column has extra room for character names and surnames. */
+ .rosterHeaderRow,.memberRow{
+-  grid-template-columns:42px 42px minmax(0,1.18fr) minmax(0,.86fr) minmax(0,1fr) minmax(0,1fr) minmax(0,.72fr) minmax(0,.76fr) minmax(0,.72fr) minmax(0,.88fr) minmax(0,.88fr) 66px minmax(0,1.02fr)!important;
++  grid-template-columns:minmax(0,1.8fr) minmax(0,.86fr) minmax(0,1fr) minmax(0,1fr) minmax(0,.72fr) minmax(0,.76fr) minmax(0,.72fr) minmax(0,.88fr) minmax(0,.88fr) 66px minmax(0,1.02fr)!important;
+   width:100%!important;
+   min-width:0!important;
+   box-sizing:border-box!important;
+@@ -185,10 +185,10 @@
+ .pauseToggle>span{color:#f3ddcf!important}
+ .pauseToggle strong{color:#f8dca5!important}
+ 
+-/* Edit mode: the first 13 columns use the SAME proportions as view mode.
++/* Edit mode: the first 11 columns use the SAME proportions as view mode.
+    Only the final Bereich/Aktion column is appended. */
+ .rosterHeaderRow.adminGrid,.memberRow.adminGrid{
+-  grid-template-columns:38px 38px minmax(0,1.18fr) minmax(0,.86fr) minmax(0,1fr) minmax(0,1fr) minmax(0,.72fr) minmax(0,.76fr) minmax(0,.72fr) minmax(0,.88fr) minmax(0,.88fr) 58px minmax(0,1.16fr) 150px!important;
++  grid-template-columns:minmax(0,1.8fr) minmax(0,.86fr) minmax(0,1fr) minmax(0,1fr) minmax(0,.72fr) minmax(0,.76fr) minmax(0,.72fr) minmax(0,.88fr) minmax(0,.88fr) 58px minmax(0,1.16fr) 150px!important;
+   width:100%!important;
+   min-width:0!important;
+   max-width:100%!important;
+@@ -299,10 +299,10 @@
+ /* Full roster: page scroll only, no inner horizontal/vertical scrollbar. */
+ @media(max-width:1250px){
+   .rosterHeaderRow,.memberRow{
+-    grid-template-columns:34px 34px minmax(0,1.18fr) minmax(0,.86fr) minmax(0,1fr) minmax(0,1fr) minmax(0,.72fr) minmax(0,.76fr) minmax(0,.72fr) minmax(0,.88fr) minmax(0,.88fr) 52px minmax(0,1.02fr)!important;
++    grid-template-columns:minmax(0,1.8fr) minmax(0,.86fr) minmax(0,1fr) minmax(0,1fr) minmax(0,.72fr) minmax(0,.76fr) minmax(0,.72fr) minmax(0,.88fr) minmax(0,.88fr) 52px minmax(0,1.02fr)!important;
+   }
+   .rosterHeaderRow.adminGrid,.memberRow.adminGrid{
+-    grid-template-columns:32px 32px minmax(0,1.18fr) minmax(0,.86fr) minmax(0,1fr) minmax(0,1fr) minmax(0,.72fr) minmax(0,.76fr) minmax(0,.72fr) minmax(0,.88fr) minmax(0,.88fr) 48px minmax(0,1.16fr) 138px!important;
++    grid-template-columns:minmax(0,1.8fr) minmax(0,.86fr) minmax(0,1fr) minmax(0,1fr) minmax(0,.72fr) minmax(0,.76fr) minmax(0,.72fr) minmax(0,.88fr) minmax(0,.88fr) 48px minmax(0,1.16fr) 138px!important;
+   }
+   .memberRow>div{padding-left:4px!important;padding-right:4px!important}
+   .areaEditCell{grid-template-columns:56px minmax(0,1fr)!important}
+@@ -338,7 +338,7 @@
+ .panelHeading b{min-width:40px;height:32px;display:grid;place-items:center;border:1px solid #9b7433;border-radius:5px;background:#302413;color:#f3ca69;font-family:Georgia,serif;font-size:17px}
+ .rosterScroll{overflow-x:auto;border:1px solid #74582e;border-radius:10px;background:#17160f;box-shadow:0 15px 38px #00000047,inset 0 0 0 1px #ebc46b0d;scrollbar-color:#8b6b35 #17120d;scrollbar-width:thin}
+ .rosterInner{min-width:1380px}
+-.rosterHeaderRow,.memberRow{display:grid;grid-template-columns:42px 42px 1.18fr .86fr 1fr 1fr .72fr .76fr .72fr .88fr .88fr 66px 1.02fr;align-items:center}
++.rosterHeaderRow,.memberRow{display:grid;grid-template-columns:1.8fr .86fr 1fr 1fr .72fr .76fr .72fr .88fr .88fr 66px 1.02fr;align-items:center}
+ .rosterHeaderRow{position:sticky;top:0;z-index:4;min-height:36px;border-bottom:1px solid #6f542a;background:linear-gradient(180deg,#433724,#2b291c);color:#e2c473}
+ .rosterHeaderRow span{padding:0 7px;border-right:1px solid rgba(177,140,63,.16);font-size:10px;font-weight:700;letter-spacing:.025em;text-align:center;text-transform:uppercase;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+ .rosterGroup{border-bottom:1px solid #5a4528}.rosterGroup:last-child{border-bottom:0}
+@@ -353,7 +353,14 @@
+ .memberRow:nth-child(2n){background:linear-gradient(90deg,#252417f7,#1c1e14f7)}.memberRow:hover{position:relative;z-index:1;background:linear-gradient(90deg,#4b4524eb,#273b23e6);box-shadow:inset 3px 0 var(--class-color),inset 0 1px #efce7a14}
+ .memberRow>div{min-width:0;padding:7px;border-right:1px solid rgba(129,109,65,.11);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.memberRow>div:last-child{border-right:0}
+ .center{text-align:center;display:flex;align-items:center;justify-content:center}
+-.everlookCharacterLink{appearance:none;border:0;border-bottom:1px dotted rgba(255,224,135,.42);padding:0;background:transparent;color:#ffe59a;font:inherit;font-size:12px;font-weight:700;letter-spacing:.005em;text-decoration:none;cursor:pointer;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.everlookCharacterLink:hover{color:#fff0bc;border-bottom-color:#79cf91}
++.everlookCharacterLink{appearance:none;border:0;border-bottom:1px dotted rgba(255,224,135,.42);padding:0;background:transparent;color:#ffe59a;font:inherit;font-size:12px;font-weight:700;letter-spacing:.005em;text-decoration:none;cursor:pointer;max-width:100%;white-space:normal;overflow-wrap:anywhere;text-align:left;line-height:1.35}.everlookCharacterLink:hover{color:#fff0bc;border-bottom-color:#79cf91}
++.characterCell{display:flex;align-items:center;gap:6px}
++.characterCell>.everlookCharacterLink{min-width:0;margin-right:auto}
++.rosterDetailsButton{appearance:none;display:grid;place-items:center;flex:0 0 26px;width:26px;height:30px;padding:3px;border:1px solid transparent;border-radius:4px;background:transparent;color:#a8bec3;cursor:pointer}
++.rosterDetailsButton svg{width:17px;height:17px}
++.rosterDetailsButton:hover,.mobileRosterArrow:hover{color:#ffe59a;border-color:#bba06a7a;background:#224253}
++.characterArmoryLink:focus-visible,.rosterDetailsButton:focus-visible,.mobileRosterArrow:focus-visible,.guildArmoryLink:focus-visible{outline:2px solid #ffe59a;outline-offset:3px}
++.guildArmoryLink{text-decoration:none}
+ .realName{font-size:12px;font-weight:600;color:#ddd4bd}
+ .localGameIcon{--icon-color:#d4b56a;width:29px;height:29px;display:grid;place-items:center;flex:0 0 29px;border:1px solid color-mix(in srgb,var(--icon-color) 70%,#735728);border-radius:6px;background:radial-gradient(circle at 35% 25%,color-mix(in srgb,var(--icon-color) 42%,#312615),#17140f 72%);color:var(--icon-color);box-shadow:inset 0 0 0 1px #ffffff0d,0 1px 3px #00000061;overflow:hidden}.localGameIcon.compact{width:23px;height:23px;flex-basis:23px;border-radius:5px}.localGameIcon svg{display:block;width:18px;height:18px;margin:0;stroke-width:2.35}.localGameIcon.compact svg{width:15px;height:15px}
+ .wowClassIcon img{width:100%;height:100%;display:block;object-fit:cover;border-radius:5px;image-rendering:auto;filter:none;transform:none;backface-visibility:hidden}
+@@ -372,7 +379,7 @@
+ .inlineEditRow{min-height:46px;background:linear-gradient(90deg,#272518fc,#1b2016fc);box-shadow:inset 3px 0 color-mix(in srgb,var(--class-color) 78%,#8f6c30)}.inlineEditRow:hover{transform:none;background:linear-gradient(90deg,#322f1dfc,#1f2a1cfc)}.inlineEditRow>div.editCell{padding:5px;overflow:visible;white-space:normal}
+ .editCell input,.editCell select{width:100%;height:36px;min-width:0;border:1px solid #615335;border-radius:6px;background:#15150f;color:#f4ead2;padding:0 8px;outline:0;font-size:11px;font-weight:750}.editCell input:hover,.editCell select:hover{border-color:#87703c}.editCell input:focus,.editCell select:focus{position:relative;z-index:3;border-color:#75a86f;box-shadow:0 0 0 2px #53995b21;background:#191b12}.editCell input.characterEdit{color:#ffe087;font-weight:900}
+ .characterEditCell,.iconSelect,.specEditCell,.offSpecEditCell{display:flex;align-items:center;gap:5px}.offSpecEditCell{gap:4px}.characterEditCell input{flex:1;min-width:0}.iconSelect .localGameIcon,.specEditCell .localGameIcon{width:25px;height:25px;flex:0 0 25px}.offSpecEditCell .localGameIcon{width:22px;height:22px;flex:0 0 22px}.iconSelect select,.specEditCell select,.offSpecEditCell select{min-width:0}.offSpecEditCell select{padding-left:6px;font-size:11px}.rerollEditCell select{text-align:center;font-size:13px;font-weight:900}
+-.adminRosterInner{min-width:1680px}.rosterHeaderRow.adminGrid,.memberRow.adminGrid{grid-template-columns:42px 42px minmax(140px,1.25fr) minmax(100px,.85fr) minmax(125px,1fr) minmax(130px,1.05fr) minmax(88px,.72fr) minmax(92px,.72fr) minmax(86px,.68fr) minmax(118px,.92fr) minmax(118px,.92fr) 64px minmax(105px,.85fr) 220px}.rosterHeaderRow.adminGrid{min-height:42px}.rosterHeaderRow.adminGrid span{font-size:10px;letter-spacing:.04em}.rosterHeaderRow.adminGrid>span:last-child{position:sticky;right:0;z-index:12;background:linear-gradient(180deg,#4b3c24,#31291a);box-shadow:-10px 0 18px #00000061}
++.adminRosterInner{min-width:1680px}.rosterHeaderRow.adminGrid,.memberRow.adminGrid{grid-template-columns:minmax(220px,1.8fr) minmax(100px,.85fr) minmax(125px,1fr) minmax(130px,1.05fr) minmax(88px,.72fr) minmax(92px,.72fr) minmax(86px,.68fr) minmax(118px,.92fr) minmax(118px,.92fr) 64px minmax(105px,.85fr) 220px}.rosterHeaderRow.adminGrid{min-height:42px}.rosterHeaderRow.adminGrid span{font-size:10px;letter-spacing:.04em}.rosterHeaderRow.adminGrid>span:last-child{position:sticky;right:0;z-index:12;background:linear-gradient(180deg,#4b3c24,#31291a);box-shadow:-10px 0 18px #00000061}
+ .areaEditCell{position:sticky!important;right:0;z-index:9;display:flex;align-items:center;gap:5px;background:linear-gradient(90deg,#252318,#1b251b);box-shadow:-10px 0 18px #0006}.areaEditCell>select{width:72px;flex:0 0 72px}.rowActions{display:flex;align-items:center;justify-content:flex-end;gap:5px;flex:1;min-width:0}.autoSaveState{min-width:57px;height:28px;display:inline-flex;align-items:center;justify-content:center;padding:0 6px;border:1px solid #3f8251;border-radius:999px;background:#173320;color:#8fd7a0;font-size:9px;font-weight:900;white-space:nowrap}.rowActions button{height:32px;border-radius:6px;font-size:10px;font-weight:900;cursor:pointer}.rowDelete{min-width:76px;display:inline-flex;align-items:center;justify-content:center;gap:4px;padding:0 6px;border:1px solid #874337;background:#351713;color:#ef9485}
+ </style>
+ <meta name="vision-logged-in-controls" content="v1">
+@@ -603,11 +610,11 @@
+ 
+   .mobileRosterRow{
+     appearance:none;width:100%;border:0;border-left:3px solid var(--class-color);border-bottom:1px solid rgba(103,132,140,.2);
+-    display:grid;grid-template-columns:34px minmax(0,1fr) auto 14px;
++    display:grid;grid-template-columns:34px minmax(0,1fr) auto 32px;
+     grid-template-areas:"lead identity rank arrow" "lead build build arrow";
+     column-gap:8px;row-gap:3px;align-items:center;
+     min-height:62px;padding:7px 8px;background:linear-gradient(90deg,#0d2b39,#09212e);
+-    color:#dfe9e8;text-align:left;cursor:pointer
++    color:#dfe9e8;text-align:left
+   }
+   .mobileRosterRow:nth-of-type(even){background:linear-gradient(90deg,#103140,#0a2431)}
+   .mobileRosterRow:active{background:linear-gradient(90deg,#1b4050,#102e3b)}
+@@ -615,14 +622,16 @@
+   .mobileRosterLead{grid-area:lead;display:grid;place-items:center;width:32px;height:32px}
+   .mobileRosterLead .localGameIcon{width:30px!important;height:30px!important;flex-basis:30px!important}
+   .mobileRosterIdentity{grid-area:identity;display:grid;gap:1px;min-width:0}
+-  .mobileRosterIdentity>b{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#f1d18b;font:700 14px/1.15 var(--sans),Arial,sans-serif}
++  .mobileRosterIdentity>.mobileCharacterLink{overflow-wrap:anywhere;white-space:normal;color:#f1d18b;font:700 14px/1.15 var(--sans),Arial,sans-serif}
++  .mobileCharacterLink{text-decoration:none;border-bottom:1px dotted rgba(255,224,135,.42);justify-self:start;max-width:100%}
++  .mobileCharacterLink:hover{color:#fff0bc;border-bottom-color:#79cf91}
+   .mobileRosterIdentity>small{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#88a4ad;font:500 9.5px/1.15 var(--sans),Arial,sans-serif}
+   .mobileRosterRank{grid-area:rank;justify-self:end;min-width:0}
+   .mobileRosterRank .rank{min-width:0!important;max-width:112px!important;min-height:27px!important;padding:2px 6px!important;gap:4px!important}
+   .mobileRosterRank .rankIcon{width:21px!important;height:21px!important;flex:0 0 21px!important}
+   .mobileRosterRank .rankText{display:inline!important;min-width:0!important;overflow:hidden!important;text-overflow:ellipsis!important;white-space:nowrap!important;font-size:8.5px!important}
+-  .mobileRosterArrow{grid-area:arrow;color:#8da6ab;display:grid;place-items:center}
+-  .mobileRosterArrow svg{width:13px;height:13px;transform:rotate(-90deg)}
++  .mobileRosterArrow{grid-area:arrow;color:#a8bec3;display:grid;place-items:center;appearance:none;min-width:32px;min-height:44px;padding:5px;border:1px solid transparent;border-radius:4px;background:transparent;cursor:pointer}
++  .mobileRosterArrow svg{width:18px;height:18px}
+ 
+   .mobileRosterBuild{grid-area:build;display:flex;align-items:center;gap:5px;min-width:0;overflow:hidden}
+   .mobileBuildClass,.mobileBuildSpec,.mobileBuildRole,.mobileBuildStatus{
+@@ -643,8 +652,8 @@
+   .mobileRosterEmpty{padding:16px 10px;color:#9db2b8;text-align:center;font-size:12px;background:#0b2733}
+ }
+ @media(max-width:430px){
+-  .mobileRosterRow{grid-template-columns:32px minmax(0,1fr) auto 12px;column-gap:6px;min-height:58px;padding:6px}
+-  .mobileRosterIdentity>b{font-size:13px}
++  .mobileRosterRow{grid-template-columns:32px minmax(0,1fr) auto 32px;column-gap:6px;min-height:58px;padding:6px}
++  .mobileRosterIdentity>.mobileCharacterLink{font-size:13px}
+   .mobileRosterIdentity>small{font-size:9px}
+   .mobileRosterRank .rank{max-width:98px!important;padding-left:4px!important;padding-right:5px!important}
+   .mobileRosterBuild{gap:4px}
+@@ -1194,9 +1203,11 @@
+ let returnFocus = null;
+ let toastTimer;
+ const rankColors = ['#efaaa0','#e7ca81','#f5af7e','#bc9bdc','#87d5cb','#9ec3e9','#a6d7aa','#e5a8ba','#b2bab7'];
+-const columns = ['ST','A/G','Charakter Name','Realer Name','Klasse','Spec','Off Spec','Rolle','Status','Beruf 1','Beruf 2','Rerolls','Rang'];
++const columns = ['Charakter Name','Realer Name','Klasse','Spec','Off Spec','Rolle','Status','Beruf 1','Beruf 2','Rerolls','Rang'];
+ const fieldLabels = { ST:'ST', AG:'A/G', character:'Charaktername', real:'Realer Name', race:'Volk', faction:'Fraktion', className:'Klasse', spec:'Main-Spec', offSpec:'Off-Spec', role:'Rolle', status:'Status', prof1:'Beruf 1', prof2:'Beruf 2', guildPosition:'Gildenrang', destination:'Kaderbereich', rerolls:'Rerolls' };
+ const paths = {
++  external: '<path d="M15 3h6v6M10 14 21 3M21 14v7H3V3h7"/>',
++  info: '<circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7h.01"/>',
+   lightning: '<path d="m13 2-8 12h6l-1 8 9-13h-6z"/>',
+   spark: '<path d="m12 3 2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5z"/>',
+   leaf: '<path d="M20 3C8 2 2 10 5 16c6 7 15-1 15-13ZM3 22 15 8"/>',
+@@ -1222,6 +1233,70 @@
+ };
+ function icon(name, cls = '') { return `<svg class="${cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${paths[name] || paths.star}</svg>`; }
+ function esc(text) { return String(text ?? '').replace(/[&<>"']/g, c => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c])); }
++const FOREVER_ARMORY_BASE='https://worldofwarcraft.blizzard.com/de-de/forever/eu/armory/';
++const FOREVER_GUILD_ARMORY=FOREVER_ARMORY_BASE+'guild/vision';
++// Exact, unique first-name matches from Blizzard's Vision guild directory, checked 2026-11-11.
++// Full roster names always take precedence. Ambiguous or missing names open the guild directory.
++const FOREVER_ARMORY_LEGACY_NAMES=Object.freeze({
++  "antherioz": "Antherioz Rabenfluch",
++  "arlexo": "Arlexo Goldhorn",
++  "burgy": "Burgy Kin",
++  "chrisso": "Chrisso Chrissô",
++  "deadray": "Deadray Dotdealer",
++  "env": "Env Yx",
++  "enya": "Enya Himmelssturm",
++  "flîtz": "Flîtz Piepe",
++  "gorak": "Gorak Nightwisper",
++  "hataali": "Hataali Ogimaa",
++  "hermîne": "Hermîne Granger",
++  "inanya": "Inanya Nightheart",
++  "inquitos": "Inquitos Nightheart",
++  "itancho": "Itancho Soulreaper",
++  "ixion": "Ixion Vision",
++  "krachbummtod": "Krachbummtod Odinssohn",
++  "lettudot": "Lettudot Lettu",
++  "lynn": "Lynn Stormweaver",
++  "mîese": "Mîese Briese",
++  "nio": "Nio Valtheris",
++  "oo": "Oo Crusher",
++  "philo": "Philo Sopfia",
++  "planeta": "Planeta Luna",
++  "raxxa": "Raxxa Sturmschrei",
++  "roled": "Roled Ku",
++  "rotoblast": "Rotoblast Doomcaller",
++  "samolay": "Samolay Runebreaker",
++  "sanona": "Sanona Moonrise",
++  "sheda": "Sheda Jujin",
++  "skaya": "Skaya Zerza",
++  "stille": "Stille Bob",
++  "sybreed": "Sybreed Caliban",
++  "tamarez": "Tamarez Titan",
++  "valeera": "Valeera Mondglanz",
++  "varkuun": "Varkuun Schwarzhuf",
++  "warchyld": "Warchyld Krähenfels",
++  "zandhira": "Zandhira Ashbane"
++});
++function foreverCharacterName(character){
++  return String(character??'').normalize('NFC').replace(/(?:\s*\([^()]*\))+\s*$/u,'').trim().replace(/\s+/gu,' ');
++}
++function foreverArmoryTarget(character){
++  const name=foreverCharacterName(character),key=name.toLowerCase();
++  const legacy=Object.prototype.hasOwnProperty.call(FOREVER_ARMORY_LEGACY_NAMES,key)?FOREVER_ARMORY_LEGACY_NAMES[key]:'';
++  const resolved=name.includes(' ')?name:legacy;
++  if(resolved){
++    try{return {href:FOREVER_ARMORY_BASE+'character/'+encodeURIComponent(resolved.toLowerCase().replace(/\s+/gu,'-')),name:resolved,direct:true};}catch{}
++  }
++  return {href:FOREVER_GUILD_ARMORY,name:'Vision',direct:false};
++}
++function foreverArmoryNameLink(p,className){
++  const target=foreverArmoryTarget(p.character);
++  const title=target.direct?`Armory: ${target.name} (neuer Tab)`:'Gilden-Armory öffnen – vollständigen Charakternamen ergänzen (neuer Tab)';
++  return `<a class="${esc(className)} characterArmoryLink" href="${esc(target.href)}" target="_blank" rel="noopener noreferrer" data-armory="${target.direct?'character':'guild'}" title="${esc(title)}" aria-label="${esc(p.character)}: ${esc(title)}">${esc(p.character)}</a>`;
++}
++function rosterDetailsButton(p,className='rosterDetailsButton'){
++  const label=`${p.character}: Roster-Details öffnen`;
++  return `<button type="button" class="${esc(className)}" data-action="player" data-id="${esc(p.id)}" title="${esc(label)}" aria-label="${esc(label)}">${icon('info')}</button>`;
++}
+ function folded(text) { return String(text).normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase('de'); }
+ function pageName() { return ['classes','roles','ranks','roadmap','guides'].includes(location.hash.slice(1)) ? location.hash.slice(1) : 'roster'; }
+ function unknown() { return '<span class="unknown" title="Noch nicht festgelegt"><span class="mark" aria-hidden="true"></span>Offen</span>'; }
+@@ -1320,9 +1395,10 @@
+   const active=filtered('active'), pause=filtered('pause');
+   return `<section class="commandBar">
+     <div class="commandTitle">${icon('users')}<div><strong>${state.edit?'Roster bearbeiten':'Gildenkader'}</strong><small>Vision · World of Warcraft: Forever</small></div></div>
++    <a class="btn guildArmoryLink" href="${FOREVER_GUILD_ARMORY}" target="_blank" rel="noopener noreferrer" title="Vision in der Gilden-Armory öffnen (neuer Tab)">${icon('external')}Gilden-Armory</a>
+     ${state.user?`<button class="btn primary" data-action="add">${icon('plus')}${state.newRow?'Neue Zeile schließen':'Neue Zeile'}</button>${!localMode?'<button class="btn" data-action="account">Konto</button>':''}<button class="btn ${state.edit?'primary':''}" data-action="admin">${icon('shield')}${state.edit?'Bearbeitung beenden':'Bearbeitung starten'}</button><button class="btn ghost" data-action="logout">${icon('out')}Abmelden</button>`:`<button class="btn" data-action="admin">${icon('shield')}Admin</button>`}
+   </section>
+-  <div class="filterBar" role="group" aria-label="Nach Rolle filtern">${['all',...ROLES].map(r=>`<button class="filterButton ${state.roleFilter===r?'active':''}" data-action="filter" data-role="${r}" aria-pressed="${state.roleFilter===r}">${r==='all'?'':icon({Tank:'shield',Heal:'heal',MDPS:'swords',RDPS:'target'}[r])}<span>${{all:'Alle',Tank:'Tanks',Heal:'Heals',MDPS:'Nahkampf',RDPS:'Fernkampf'}[r]}</span><b>${r==='all'?liveCount():liveCount(r)}</b></button>`).join('')}<span class="filterHelp">${state.edit?'EXCEL-MODUS · DIREKT BEARBEITEN':'Charakternamen öffnen die Detailansicht'}</span></div>
++  <div class="filterBar" role="group" aria-label="Nach Rolle filtern">${['all',...ROLES].map(r=>`<button class="filterButton ${state.roleFilter===r?'active':''}" data-action="filter" data-role="${r}" aria-pressed="${state.roleFilter===r}">${r==='all'?'':icon({Tank:'shield',Heal:'heal',MDPS:'swords',RDPS:'target'}[r])}<span>${{all:'Alle',Tank:'Tanks',Heal:'Heals',MDPS:'Nahkampf',RDPS:'Fernkampf'}[r]}</span><b>${r==='all'?liveCount():liveCount(r)}</b></button>`).join('')}<span class="filterHelp">${state.edit?'EXCEL-MODUS · DIREKT BEARBEITEN':'Name → Armory · ⓘ → Roster-Details'}</span></div>
+   <div class="statusLine"><span><i class="dot"></i>${esc(statusText())}</span>${state.error?`<span>${esc(state.error)}</span><button data-action="retry">Erneut laden</button>`:''}</div>
+   <div class="workspace ${state.edit?'adminWorkspace':''}"><section class="rosterPanel" id="roster">
+     <header class="panelHeading"><div><span>${state.edit?'EXCEL-MODUS · DIREKT BEARBEITEN':'RAIDKADER'}</span><h2>Aktive Spieler</h2></div><b>${active.length}</b></header>
+@@ -1363,13 +1439,13 @@
+     `<span class="mobileBuildRole">${legacyRoleIcon(p.role)}<b>${esc(p.role)}</b></span>`,
+     `<span class="mobileBuildStatus ${statusClass}"><i></i>${statusText}</span>`
+   ].filter(Boolean).join('');
+-  return `<button type="button" class="mobileRosterRow" data-action="player" data-id="${esc(p.id)}" style="--class-color:${color};--row-delay:${Math.min(index,12)*28}ms" aria-label="${esc(p.character)} Details öffnen">
++  return `<div class="mobileRosterRow" data-player="${esc(p.id)}" style="--class-color:${color};--row-delay:${Math.min(index,12)*28}ms">
+     <span class="mobileRosterLead">${leadIcon}</span>
+-    <span class="mobileRosterIdentity"><b>${esc(p.character)}</b><small>${esc(p.real||'')}</small></span>
++    <span class="mobileRosterIdentity">${foreverArmoryNameLink(p,'mobileCharacterLink')}<small>${esc(p.real||'')}</small></span>
+     <span class="mobileRosterRank">${legacyRankBadge(p.guildPosition)}</span>
+     <span class="mobileRosterBuild">${build}</span>
+-    <span class="mobileRosterArrow">${icon('chevron')}</span>
+-  </button>`;
++    ${rosterDetailsButton(p,'mobileRosterArrow')}
++  </div>`;
+ }
+ function legacyMobileGroup(section,players,hideHeader=false){
+   const sorted=legacySort(players);
+@@ -1398,13 +1474,13 @@
+     `<span class="mobileBuildRole">${legacyRoleIcon(p.role)}<b>${esc(p.role)}</b></span>`,
+     `<span class="mobileBuildStatus ${statusClass}"><i></i>${statusText}</span>`
+   ].filter(Boolean).join('');
+-  return `<button type="button" class="mobileRosterRow" data-action="player" data-id="${esc(p.id)}" style="--class-color:${color};--row-delay:${Math.min(index,12)*28}ms" aria-label="${esc(p.character)} Details öffnen">
++  return `<div class="mobileRosterRow" data-player="${esc(p.id)}" style="--class-color:${color};--row-delay:${Math.min(index,12)*28}ms">
+     <span class="mobileRosterLead">${leadIcon}</span>
+-    <span class="mobileRosterIdentity"><b>${esc(p.character)}</b><small>${esc(p.real||'')}</small></span>
++    <span class="mobileRosterIdentity">${foreverArmoryNameLink(p,'mobileCharacterLink')}<small>${esc(p.real||'')}</small></span>
+     <span class="mobileRosterRank">${legacyRankBadge(p.guildPosition)}</span>
+     <span class="mobileRosterBuild">${build}</span>
+-    <span class="mobileRosterArrow">${icon('chevron')}</span>
+-  </button>`;
++    ${rosterDetailsButton(p,'mobileRosterArrow')}
++  </div>`;
+ }
+ function legacyMobileGroup(section,players,hideHeader=false){
+   const sorted=legacySort(players);
+@@ -1433,13 +1509,13 @@
+     `<span class="mobileBuildRole">${legacyRoleIcon(p.role)}<b>${esc(p.role)}</b></span>`,
+     `<span class="mobileBuildStatus ${statusClass}"><i></i>${statusText}</span>`
+   ].filter(Boolean).join('');
+-  return `<button type="button" class="mobileRosterRow" data-action="player" data-id="${esc(p.id)}" style="--class-color:${color};--row-delay:${Math.min(index,12)*28}ms" aria-label="${esc(p.character)} Details öffnen">
++  return `<div class="mobileRosterRow" data-player="${esc(p.id)}" style="--class-color:${color};--row-delay:${Math.min(index,12)*28}ms">
+     <span class="mobileRosterLead">${leadIcon}</span>
+-    <span class="mobileRosterIdentity"><b>${esc(p.character)}</b><small>${esc(p.real||'')}</small></span>
++    <span class="mobileRosterIdentity">${foreverArmoryNameLink(p,'mobileCharacterLink')}<small>${esc(p.real||'')}</small></span>
+     <span class="mobileRosterRank">${legacyRankBadge(p.guildPosition)}</span>
+     <span class="mobileRosterBuild">${build}</span>
+-    <span class="mobileRosterArrow">${icon('chevron')}</span>
+-  </button>`;
++    ${rosterDetailsButton(p,'mobileRosterArrow')}
++  </div>`;
+ }
+ function legacyMobileGroup(section,players,hideHeader=false){
+   const sorted=legacySort(players);
+@@ -1473,9 +1549,9 @@
+ function legacyNewRow(){
+   const classes=Object.keys(CLASSES).filter(c=>!['Monk','Todesritter'].includes(c));
+   return `<form class="memberRow adminGrid inlineEditRow newEditRow" data-new-player style="--class-color:#d6ae5e">
+-    <div class="editCell"><input name="ST" value="B" aria-label="ST neuer Spieler"></div>
+-    <div class="editCell"><input name="AG" value="A" aria-label="A/G neuer Spieler"></div>
+-    <div class="editCell characterEditCell"><input class="characterEdit" name="character" value="" placeholder="Charaktername" required maxlength="100" aria-label="Charaktername neuer Spieler"></div>
++    <input type="hidden" name="ST" value="B">
++    <input type="hidden" name="AG" value="A">
++    <div class="editCell characterEditCell"><input class="characterEdit" name="character" value="" placeholder="z. B. Zuku Vision" required maxlength="100" aria-label="Charaktername neuer Spieler"></div>
+     <div class="editCell"><input name="real" value="" placeholder="Realer Name" maxlength="100" aria-label="Realer Name neuer Spieler"></div>
+     <div class="editCell iconSelect"><select name="className" aria-label="Klasse neuer Spieler">${inlineOptions(classes,'Unbekannt',true)}</select></div>
+     <div class="editCell specEditCell"><span class="newMainSpecIcon"></span><select name="spec" aria-label="Spec neuer Spieler">${inlineOptions([''],'')}</select></div>
+@@ -1489,11 +1565,11 @@
+     <div class="editCell areaEditCell"><select name="destination" aria-label="Kaderbereich neuer Spieler"><option value="active" selected>Aktiv</option><option value="pause">Pause</option></select><div class="rowActions"><button class="rowCreate" type="submit" title="Spieler anlegen" aria-label="Spieler anlegen">${icon('save')}</button><button class="rowCancel" type="button" data-action="cancel-new-row" title="Abbrechen" aria-label="Neue Zeile abbrechen">${icon('close')}</button></div></div>
+   </form>`;
+ }
+-function legacyViewRow(p,index=0){const color=CLASSES[p.className]?.color||'#8a7f65';return `<div class="memberRow" data-player="${esc(p.id)}" style="--class-color:${color};--row-delay:${Math.min(index,12)*28}ms"><div class="center">${legacyValue(p.ST,true)}</div><div class="center">${legacyValue(p.AG,true)}</div><div class="characterCell"><button class="everlookCharacterLink" data-action="player" data-id="${esc(p.id)}">${esc(p.character)}</button></div><div class="realName">${legacyValue(p.real)}</div><div>${legacyClassCell(p.className)}</div><div>${legacySpecCell(p.className,p.spec)}</div><div>${legacySpecCell(p.className,p.offSpec,true)}</div><div>${legacyRoleCell(p.role)}</div><div class="center">${legacyStatus(p.status)}</div><div>${legacyProfessionCell(p.prof1)}</div><div>${legacyProfessionCell(p.prof2)}</div><div class="center">${legacyReroll(p)}</div><div class="center">${legacyRankBadge(p.guildPosition)}</div></div>`;}
++function legacyViewRow(p,index=0){const color=CLASSES[p.className]?.color||'#8a7f65';return `<div class="memberRow" data-player="${esc(p.id)}" style="--class-color:${color};--row-delay:${Math.min(index,12)*28}ms"><div class="characterCell">${foreverArmoryNameLink(p,'everlookCharacterLink')}${rosterDetailsButton(p)}</div><div class="realName">${legacyValue(p.real)}</div><div>${legacyClassCell(p.className)}</div><div>${legacySpecCell(p.className,p.spec)}</div><div>${legacySpecCell(p.className,p.offSpec,true)}</div><div>${legacyRoleCell(p.role)}</div><div class="center">${legacyStatus(p.status)}</div><div>${legacyProfessionCell(p.prof1)}</div><div>${legacyProfessionCell(p.prof2)}</div><div class="center">${legacyReroll(p)}</div><div class="center">${legacyRankBadge(p.guildPosition)}</div></div>`;}
+ function inlineOptions(values,selected,unknown=false){const list=unknown?['Unbekannt',...values]:values;return list.map(v=>`<option value="${esc(v)}" ${v===selected?'selected':''}>${esc(v||'Unbekannt')}</option>`).join('');}
+ function inlineText(p,key){return `<input class="${key==='character'?'characterEdit':''}" data-inline data-id="${esc(p.id)}" data-key="${key}" value="${esc(p[key]||'')}" aria-label="${esc(fieldLabels[key]||key)} von ${esc(p.character)}">`;}
+ function inlineSelect(p,key,values,unknown=false){return `<select data-inline data-id="${esc(p.id)}" data-key="${key}" aria-label="${esc(fieldLabels[key]||key)} von ${esc(p.character)}">${inlineOptions(values,p[key],unknown)}</select>`;}
+-function legacyEditRow(p){const allowed=classesFor(p.race,p.faction),roles=p.className==='Unbekannt'?ROLES:Object.keys(CLASSES[p.className]?.specs||{}),all=allSpecs(p.className),color=CLASSES[p.className]?.color||'#8a7f65';return `<div class="memberRow adminGrid inlineEditRow" data-player="${esc(p.id)}" style="--class-color:${color}"><div class="editCell">${inlineText(p,'ST')}</div><div class="editCell">${inlineText(p,'AG')}</div><div class="editCell characterEditCell">${inlineText(p,'character')}</div><div class="editCell">${inlineText(p,'real')}</div><div class="editCell iconSelect">${legacyClassCell(p.className).replace(/<b>.*<\/b>/,'')}${inlineSelect(p,'className',allowed,true)}</div><div class="editCell specEditCell">${p.spec?legacySpecCell(p.className,p.spec).replace(/<b>.*<\/b>/,''):''}${inlineSelect(p,'spec',['',...all])}</div><div class="editCell offSpecEditCell">${p.offSpec&&p.offSpec!=='Keinen'?legacySpecCell(p.className,p.offSpec,true).replace(/<b>.*<\/b>/,''):''}${inlineSelect(p,'offSpec',['','Keinen',...all])}</div><div class="editCell iconSelect">${legacyRoleIcon(p.role)}${inlineSelect(p,'role',roles)}</div><div class="editCell">${inlineSelect(p,'status',['Unbekannt','Sicher'])}</div><div class="editCell iconSelect">${p.prof1&&p.prof1!=='Unbekannt'&&PROF_ICONS[p.prof1]?legacyImageIcon(WOW_ICON_BASE+PROF_ICONS[p.prof1],'#d6ae5e',true):''}${inlineSelect(p,'prof1',PROFESSIONS,true)}</div><div class="editCell iconSelect">${p.prof2&&p.prof2!=='Unbekannt'&&PROF_ICONS[p.prof2]?legacyImageIcon(WOW_ICON_BASE+PROF_ICONS[p.prof2],'#d6ae5e',true):''}${inlineSelect(p,'prof2',PROFESSIONS,true)}</div><div class="editCell rerollEditCell"><select data-inline data-id="${esc(p.id)}" data-key="rerolls"><option value="" ${!p.rerolls?'selected':''}>?</option><option value="0" ${p.rerolls==='0'?'selected':''}>0</option><option value="1" ${p.rerolls==='1'?'selected':''}>1</option><option value="2" ${p.rerolls==='2'?'selected':''}>2</option></select></div><div class="editCell iconSelect">${legacyRankBadge(p.guildPosition).replace(/<b>.*<\/b>/,'')}${inlineSelect(p,'guildPosition',RANKS)}</div><div class="editCell areaEditCell"><select data-inline data-id="${esc(p.id)}" data-key="destination"><option value="active" ${p.destination==='active'?'selected':''}>Aktiv</option><option value="pause" ${p.destination==='pause'?'selected':''}>Pause</option></select><div class="rowActions"><button class="rowDelete" data-action="delete" data-id="${esc(p.id)}" title="${esc(p.character)} löschen">${icon('trash')}<span>Löschen</span></button></div></div></div>`;}
++function legacyEditRow(p){const allowed=classesFor(p.race,p.faction),roles=p.className==='Unbekannt'?ROLES:Object.keys(CLASSES[p.className]?.specs||{}),all=allSpecs(p.className),color=CLASSES[p.className]?.color||'#8a7f65';return `<div class="memberRow adminGrid inlineEditRow" data-player="${esc(p.id)}" style="--class-color:${color}"><div class="editCell characterEditCell">${inlineText(p,'character')}</div><div class="editCell">${inlineText(p,'real')}</div><div class="editCell iconSelect">${legacyClassCell(p.className).replace(/<b>.*<\/b>/,'')}${inlineSelect(p,'className',allowed,true)}</div><div class="editCell specEditCell">${p.spec?legacySpecCell(p.className,p.spec).replace(/<b>.*<\/b>/,''):''}${inlineSelect(p,'spec',['',...all])}</div><div class="editCell offSpecEditCell">${p.offSpec&&p.offSpec!=='Keinen'?legacySpecCell(p.className,p.offSpec,true).replace(/<b>.*<\/b>/,''):''}${inlineSelect(p,'offSpec',['','Keinen',...all])}</div><div class="editCell iconSelect">${legacyRoleIcon(p.role)}${inlineSelect(p,'role',roles)}</div><div class="editCell">${inlineSelect(p,'status',['Unbekannt','Sicher'])}</div><div class="editCell iconSelect">${p.prof1&&p.prof1!=='Unbekannt'&&PROF_ICONS[p.prof1]?legacyImageIcon(WOW_ICON_BASE+PROF_ICONS[p.prof1],'#d6ae5e',true):''}${inlineSelect(p,'prof1',PROFESSIONS,true)}</div><div class="editCell iconSelect">${p.prof2&&p.prof2!=='Unbekannt'&&PROF_ICONS[p.prof2]?legacyImageIcon(WOW_ICON_BASE+PROF_ICONS[p.prof2],'#d6ae5e',true):''}${inlineSelect(p,'prof2',PROFESSIONS,true)}</div><div class="editCell rerollEditCell"><select data-inline data-id="${esc(p.id)}" data-key="rerolls"><option value="" ${!p.rerolls?'selected':''}>?</option><option value="0" ${p.rerolls==='0'?'selected':''}>0</option><option value="1" ${p.rerolls==='1'?'selected':''}>1</option><option value="2" ${p.rerolls==='2'?'selected':''}>2</option></select></div><div class="editCell iconSelect">${legacyRankBadge(p.guildPosition).replace(/<b>.*<\/b>/,'')}${inlineSelect(p,'guildPosition',RANKS)}</div><div class="editCell areaEditCell"><select data-inline data-id="${esc(p.id)}" data-key="destination"><option value="active" ${p.destination==='active'?'selected':''}>Aktiv</option><option value="pause" ${p.destination==='pause'?'selected':''}>Pause</option></select><div class="rowActions"><button class="rowDelete" data-action="delete" data-id="${esc(p.id)}" title="${esc(p.character)} löschen">${icon('trash')}<span>Löschen</span></button></div></div></div>`;}
+ 
+ async function saveInline(id,key,value) {
+   const current=state.players.find(p=>p.id===id); if(!current)return;
+@@ -1556,15 +1632,15 @@
+   const q=folded(String(state.query||'').trim());
+   const selected=state.guideClass||'';
+   const classes=[
+-    {name:'Krieger',slug:'warrior',note:'Arms: Slam ohne Unterbrechung des Schwungtimers; Rend kann Overpower-Procs auslösen.',ref:'arms-warrior',specs:[['Arms','arms','MDPS'],['Fury','fury','MDPS'],['Protection','protection','Tank']]},
+-    {name:'Paladin',slug:'paladin',note:'Protection: Seal of Fury macht Judgement zum Spott. Swift Judgement setzt die Abklingzeit zurück.',ref:'protection-paladin',specs:[['Holy','holy','Heal'],['Protection','protection','Tank'],['Retribution','retribution','MDPS']]},
+-    {name:'Jäger',slug:'hunter',note:'Survival wird im Guide als Nahkampf-Spielweise mit Fallen, Mongoose-Bite-Procs und Strider Kick geführt.',ref:'survival-hunter',specs:[['Beast Mastery','beast-mastery','RDPS'],['Marksmanship','marksmanship','RDPS'],['Survival','survival','MDPS']]},
+-    {name:'Schurke',slug:'rogue',note:'Combat: Der Guide vergleicht Sinister Strike und Backstab. Eine endgültig stärkere Variante steht noch nicht fest.',ref:'combat-rogue',specs:[['Assassination','assassination','MDPS'],['Combat','combat','MDPS'],['Subtlety','subtlety','MDPS']]},
+-    {name:'Priester',slug:'priest',note:'Discipline: Heil- und DPS-Varianten werden als vorläufige Planung beschrieben; Penance ist neu dabei.',ref:'discipline-priest',specs:[['Discipline','discipline','Heal / DPS'],['Holy','holy','Heal'],['Shadow','shadow','RDPS']]},
+-    {name:'Schamane',slug:'shaman',note:'Enhancement: Maelstrom Weapon, versetzbare Totems und Rage of the Farseer als persönlicher Kampfrausch.',ref:'enhancement-shaman',specs:[['Elemental','elemental','RDPS'],['Enhancement','enhancement','MDPS'],['Restoration','restoration','Heal']]},
+-    {name:'Magier',slug:'mage',note:'Frost: Frostbolt erzeugt Fingers-of-Frost-Procs, die mit Ice Lance genutzt werden. Auch Level-30-Beta-Builds sind verlinkt.',ref:'frost-mage',specs:[['Arcane','arcane','RDPS'],['Fire','fire','RDPS'],['Frost','frost','RDPS']]},
+-    {name:'Hexenmeister',slug:'warlock',note:'Demonology: Demonic Pact erlaubt ein Dämonenopfer bei aktivem Begleiter. Shadow- und Fire-Varianten werden verglichen.',ref:'demonology-warlock',specs:[['Affliction','affliction','RDPS'],['Demonology','demonology','RDPS'],['Destruction','destruction','RDPS']]},
+-    {name:'Druide',slug:'druid',note:'Balance plant rund um Eclipse. Feral Tank und Feral DPS haben eigene Guides, obwohl beide zum Feral-Talentbaum gehören.',ref:'balance-druid',specs:[['Balance','balance','RDPS'],['Feral Tank','feral-tank','Tank','Feral'],['Feral DPS','feral-dps','MDPS','Feral'],['Restoration','restoration','Heal']]}
++    {name:'Krieger',slug:'warrior',note:"Arms: Slam unterbricht den Schwungtimer nicht; Rend kann über Bloodthrill Overpower auslösen.\nFury: Der Guide bietet einen Standard-Build und eine Variante mit Sweeping Strikes.\nProtection: Charge und Thunder Clap sind in Defensive Stance nutzbar; der vorgestellte Build kombiniert Bedrohung und Defensive.",ref:'arms-warrior',specs:[['Arms','arms','MDPS'],['Fury','fury','MDPS'],['Protection','protection','Tank']]},
++    {name:'Paladin',slug:'paladin',note:"Holy: Light’s Vigil zusammen mit Holy Shock dient der Gruppenheilung; Oath of Light wird auf dem zugewiesenen Ziel gehalten.\nProtection: Seal of Fury macht Judgement zum Spott. Swift Judgement setzt es zurück; Templar’s Bulwark ist ein defensiver Notfallknopf.\nRetribution: Unsealed Wrath steuert den Siegelwechsel. Der Guide stellt außerdem eine Shockadin-Variante vor.",ref:'protection-paladin',specs:[['Holy','holy','Heal'],['Protection','protection','Tank'],['Retribution','retribution','MDPS']]},
++    {name:'Jäger',slug:'hunter',note:"Beast Mastery: Summon Hawk ergänzt den Begleiter; Intimidation verursacht auch Schaden.\nMarksmanship: Sniper Shot ergänzt die Rotation. Lone Wolf ermöglicht eine Spielweise ohne Begleiter.\nSurvival: Der Guide unterscheidet 2H Weave und DW Melee. Fallen, Mongoose Bite und Strider Kick prägen die Nahkampfoptionen.",ref:'survival-hunter',specs:[['Beast Mastery','beast-mastery','RDPS'],['Marksmanship','marksmanship','RDPS'],['Survival','survival','MDPS']]},
++    {name:'Schurke',slug:'rogue',note:"Assassination: Mutilate erzeugt Combopunkte; Shank ergänzt die Energieplanung. Slice and Dice bleibt Teil der Priorität.\nCombat: Es stehen Sinister-Strike- und Backstab-Builds zur Auswahl; Shank ist in die Rotation eingebunden.\nSubtlety: Blutungen und Death Mark stehen im Mittelpunkt. Ghostly Strike ermöglicht Garrote außerhalb der Verstohlenheit.",ref:'combat-rogue',specs:[['Assassination','assassination','MDPS'],['Combat','combat','MDPS'],['Subtlety','subtlety','MDPS']]},
++    {name:'Priester',slug:'priest',note:"Discipline: Der Guide führt einen Heil-Build und Smite DPS. Penance ergänzt die Einzelzielheilung; Teile der Einschätzung sind weiterhin vorläufig.\nHoly: Litany of Light belohnt wechselnde Heilzauber. Prayer of Mending und Binding Heal erweitern das Werkzeugset.\nShadow: Devouring Plague und Shadow Word: Death ergänzen die Priorität; Shadowform senkt laut Guide die Manakosten um 50 Prozent.",ref:'discipline-priest',specs:[['Discipline','discipline','Heal / DPS'],['Holy','holy','Heal'],['Shadow','shadow','RDPS']]},
++    {name:'Schamane',slug:'shaman',note:"Elemental: Call of the Elements setzt vier Totems; Totemic Projection versetzt sie. Der Guide priorisiert Flame Shock und Blitzzauber.\nEnhancement: Maelstrom Weapon erlaubt Lightning Bolt bei fünf Stapeln; Rage of the Farseer ist ein persönlicher Kampfrausch.\nRestoration: Water Shield und Riptide gehören zur Vorbereitung. Für Gruppenheilung bevorzugt der Guide Chain Heal auf Zielen mit Riptide.",ref:'enhancement-shaman',specs:[['Elemental','elemental','RDPS'],['Enhancement','enhancement','MDPS'],['Restoration','restoration','Heal']]},
++    {name:'Magier',slug:'mage',note:"Arcane: Missile Barrage wird mit Arcane Missiles genutzt. Neben reinem Arcane gibt es eine Arcane-Fire-Variante mit Heating Up.\nFire: Frostfire-Bolt- und Fireball-Builds sind getrennt beschrieben; Heating Up ermöglicht Pyroblast bei drei Stapeln.\nFrost: Fingers of Frost verstärkt Ice Lance. Bei fünf Winter’s-Chill-Stapeln empfiehlt der Guide Cone of Cold.",ref:'frost-mage',specs:[['Arcane','arcane','RDPS'],['Fire','fire','RDPS'],['Frost','frost','RDPS']]},
++    {name:'Hexenmeister',slug:'warlock',note:"Affliction: Wrack dient als Füllzauber; DoTs und die zugewiesene Fluchwirkung werden aufrechterhalten.\nDemonology: Demonic Pact verbindet Dämonenopfer mit einem aktiven Begleiter. Der Guide bietet Fire Imp und Shadow Succubus an.\nDestruction: Incinerate ergänzt die Rotation; Bane of Havoc unterstützt Schaden auf mehrere Ziele.",ref:'demonology-warlock',specs:[['Affliction','affliction','RDPS'],['Demonology','demonology','RDPS'],['Destruction','destruction','RDPS']]},
++    {name:'Druide',slug:'druid',note:"Balance: Eclipse steuert den Wechsel zwischen Wrath und Starfire; Moonfire und Insect Swarm bleiben aktiv.\nFeral Tank: Lacerate und Primal Bite ergänzen die Bedrohungserzeugung. Frenzied Regeneration dient als defensiver Notfallknopf.\nFeral DPS: Shifting Power unterstützt die Energieversorgung; Rip und Rake prägen die Blutungsrotation.\nRestoration: Wild Growth ergänzt die Gruppenheilung, Swiftmend die schnelle Einzelzielheilung. Die Heilungseinschätzung enthält weiterhin offene Fragen.",ref:'balance-druid',specs:[['Balance','balance','RDPS'],['Feral Tank','feral-tank','Tank','Feral'],['Feral DPS','feral-dps','MDPS','Feral'],['Restoration','restoration','Heal']]}
+   ];
+   const resources=[
+     {title:'Talentplaner',text:'Die Talentbäume aller neun Klassen – zum Planen und Vergleichen.',path:'talent-calculator/',glyph:'spark',label:'Talente planen'},
+@@ -1572,7 +1648,7 @@
+     {title:'Ausrüstungslisten',text:'Mögliche Upgrades je Ausrüstungsplatz. Noch keine sortierte, endgültige BiS-Rangliste.',path:'bis-list/',glyph:'shield',label:'Ausrüstung ansehen'},
+     {title:'Dungeon-Beute',text:'Beutetabellen für bekannte und neue Forever-Dungeons direkt nachschlagen.',path:'loot-tables/dungeons/',glyph:'gem',label:'Beute nachschlagen'}
+   ];
+-  const dungeons=[['The Hall of Thanes','13–18'],['Ruins of Lordaeron','15–20'],['Excavation Site: Wetlands','24–29'],['City of Dalaran','28–33'],['The Drowned City','35–40'],["Krol’dok Stronghold",'40–45'],['Alcaz Prison','48–53'],['Blackmaw Hold','55–60'],["Shaper’s Terrace",'58–60']];
++  const dungeons=[['Hall of Thanes','13–18'],['Ruins of Lordaeron','16–23'],['Excavation Site: Wetlands','26–32'],['City of Dalaran','28–34'],['The Drowned City','35–40'],["Krol’dok Stronghold",'40–45'],['Alcaz Prison','48–53'],['Blackmaw Hold','55–60'],["Shaper’s Terrace",'58–60']];
+   const matches=text=>!q||folded(text).includes(q);
+   const visible=classes.filter(c=>(!selected||c.name===selected)&&matches(c.name+' '+c.slug+' '+c.note+' '+c.specs.flat().join(' ')));
+   const tools=resources.filter(r=>matches(r.title+' '+r.text+' '+r.path));
+@@ -1589,32 +1665,33 @@
+         const url=base+'class-guides/'+slug+'-'+c.slug+'/';
+         return `<a class="vg-spec" href="${url}" ${ext} aria-label="${esc(c.name+' '+name)} Guide öffnen"><span class="vg-spec-icon">${image(f?WOW_ICON_BASE+f:ci,ci)}</span><span class="vg-spec-name">${esc(name)}</span><span class="vg-spec-role">${esc(role)}</span>${arrow}</a>`;
+       }).join('')}</div>
+-      <details class="vg-class-details"><summary>Was ändert sich? ${icon('chevron')}</summary><p>${esc(c.note)}</p><a href="${base}class-guides/${c.ref}/" ${ext}>Im Detailguide nachlesen ${arrow}</a></details>
++      <details class="vg-class-details"><summary>Was ändert sich? ${icon('chevron')}</summary>${c.note.split('\n').map(line=>`<p>${esc(line)}</p>`).join('')}<a href="${base}class-guides/${c.ref}/" ${ext}>Im Detailguide nachlesen ${arrow}</a></details>
+     </article>`;
+   }).join('');
+-  return `<section class="visionGuides" data-guide-design="warcraft-v1" data-guide-version="2026-09-20">
++  return `<section class="visionGuides" data-guide-design="warcraft-v1" data-guide-version="2026-11-11">
+     <header class="vg-hero">
+       <a class="vg-back" href="#roster">${icon('back')} Zurück zum Roster</a>
+       <div class="vg-hero-copy"><h2>Guides-Forever</h2><p>Deine Klasse. Dein Build. Dein nächstes Abenteuer.</p><div class="vg-hero-description">Klassenguides, Talentbäume und Ausrüstung für den Vision-Kader – übersichtlich an einem Ort.</div></div>
+-      <div class="vg-hero-bottom"><span><time datetime="2026-09-20">Abgeglichen am 20.09.2026</time><i aria-hidden="true">·</i>Vorläufiger Forever-Stand</span><a href="${source}" ${ext}>Originalübersicht ${arrow}</a></div>
++      <div class="vg-hero-bottom"><span><time datetime="2026-11-11">Abgeglichen am 11.11.2026</time><i aria-hidden="true">·</i>Guides &amp; Loot erneut geprüft</span><a href="${source}" ${ext}>Originalübersicht ${arrow}</a></div>
+     </header>
+     <nav class="vg-jump" aria-label="Guide-Abschnitte"><button type="button" data-vg-jump="vg-classes">Klassenguides <span>28</span></button><button type="button" data-vg-jump="vg-tools" ${tools.length?'':'disabled'}>Tools &amp; Ausrüstung</button><button type="button" data-vg-jump="vg-world" ${worldMatches?'':'disabled'}>Welt &amp; Inhalte</button><a href="#roadmap">Roadmap ${icon('chevron')}</a></nav>
+-    <div class="vg-update"><span class="vg-update-icon">${icon('spark')}</span><p><strong>Neu in deiner Guide-Übersicht:</strong> alle 28 PvE-Guides statt eines einzelnen Beispiels, Ausrüstungslisten und Dungeon-Loot. Viele Detailguides enthalten außerdem eigene Level-30-Beta-Builds.</p></div>
++    <div class="vg-update"><span class="vg-update-icon">${icon('spark')}</span><p><strong>Aktualisiert am 11.11.2026:</strong> alle 28 PvE-Guides neu abgeglichen, Kurzinfos je Spezialisierung ergänzt und Dungeon-Level nach der Loot-Übersicht korrigiert. Viele Detailguides bieten inzwischen Builds für Level 1–60.</p></div>
+     ${q?`<div class="vg-search-state" role="status">Suche nach „${esc(String(state.query).trim())}“<button type="button" data-vg-reset>Suche zurücksetzen</button></div>`:''}
+     <section class="vg-section" id="vg-classes" aria-labelledby="vg-classes-title">
+       <div class="vg-heading"><div><h3 id="vg-classes-title">Finde deinen Klassenguide</h3><p>Rotationen, Talente und verfügbare Völker direkt bei wowtbc.gg.</p></div><label class="vg-filter">Klasse<select data-vg-class aria-label="Klassenguides filtern"><option value="">Alle Klassen</option>${classes.map(c=>`<option value="${esc(c.name)}" ${selected===c.name?'selected':''}>${esc(c.name)}</option>`).join('')}</select></label></div>
+       <div class="vg-class-grid">${classCards||'<div class="vg-empty">Keine passenden Klassenguides. <button type="button" data-vg-reset>Alle anzeigen</button></div>'}</div>
+-      <p class="vg-caption">9 Klassen · 27 Talentbäume · 28 Guides, weil Feral Tank und Feral DPS getrennt beschrieben werden. Die Rollenangaben hier stammen aus den Guides; dein Roster wird dadurch nicht verändert.</p>
++      <p class="vg-caption">9 Klassen · 27 Talentbäume · 28 Guides, weil Feral Tank und Feral DPS getrennt beschrieben werden. Die Kurzinfos unter „Was ändert sich?“ fassen die verlinkten Spezialisierungsguides zusammen. Einzelne Empfehlungen sind weiterhin vorläufig.</p>
+     </section>
+     ${tools.length?`<section class="vg-section" id="vg-tools" aria-labelledby="vg-tools-title"><div class="vg-heading"><div><h3 id="vg-tools-title">Vom Build zur Raidgruppe</h3><p>Die passenden Werkzeuge für die nächste Planung.</p></div></div><div class="vg-tools">${tools.map(t=>`<a class="vg-tool" href="${base+t.path}" ${ext}><span class="vg-tool-icon">${icon(t.glyph)}</span><h4>${esc(t.title)}</h4><p>${esc(t.text)}</p><span class="vg-tool-link">${esc(t.label)} ${arrow}</span></a>`).join('')}</div><p class="vg-caption">Ausrüstungslisten: wowtbc.gg sammelt derzeit interessante Gegenstände, ohne sie nach Stärke zu sortieren. Werte und Empfehlungen können sich noch ändern.</p></section>`:''}
+-    ${worldMatches?`<section class="vg-section" id="vg-world" aria-labelledby="vg-world-title"><div class="vg-heading"><div><h3 id="vg-world-title">Neue Wege durch Azeroth</h3><p>Die angekündigten Weltinhalte im Überblick.</p></div><a class="vg-text-link" href="${source}" ${ext}>Quelle &amp; Details ${arrow}</a></div><div class="vg-world-grid">
+-      <article class="vg-dungeons"><header><div><h4>Dungeons</h4><p>9 angekündigte Instanzen</p></div><span class="vg-world-symbol">${icon('swords')}</span></header><table><thead><tr><th scope="col">Instanz</th><th scope="col">Level</th></tr></thead><tbody>${dungeons.map(([name,lvl])=>`<tr><td>${esc(name)}</td><td><span>${esc(lvl)}</span></td></tr>`).join('')}</tbody></table><a class="vg-text-link" href="${base}loot-tables/dungeons/" ${ext}>Alle Dungeon-Beutetabellen ${arrow}</a></article>
++    ${worldMatches?`<section class="vg-section" id="vg-world" aria-labelledby="vg-world-title"><div class="vg-heading"><div><h3 id="vg-world-title">Neue Wege durch Azeroth</h3><p>Weltinhalte nach der Übersicht und den aktuellen Dungeon-Beutetabellen.</p></div><a class="vg-text-link" href="${source}" ${ext}>Quelle &amp; Details ${arrow}</a></div><div class="vg-world-grid">
++      <article class="vg-dungeons"><header><div><h4>Dungeons</h4><p>9 neue Instanzen · Level laut Loot-Übersicht</p></div><span class="vg-world-symbol">${icon('swords')}</span></header><table><thead><tr><th scope="col">Instanz</th><th scope="col">Level</th></tr></thead><tbody>${dungeons.map(([name,lvl])=>`<tr><td>${esc(name)}</td><td><span>${esc(lvl)}</span></td></tr>`).join('')}</tbody></table><p class="vg-caption">Die Loot-Übersicht nennt für Lordaeron, Wetlands und Dalaran andere Levelbereiche als der ältere Ankündigungsartikel. Hier stehen die Werte aus der Loot-Übersicht.</p><a class="vg-text-link" href="${base}loot-tables/dungeons/" ${ext}>Alle Dungeon-Beutetabellen ${arrow}</a></article>
+       <div class="vg-world-aside"><article class="vg-raids"><h4>Raids</h4><div><span>The Barrow Deeps</span><b>10 <small>Spieler</small></b></div><div><span>Hyjal Summit</span><b>20 <small>Spieler</small></b></div></article><article class="vg-zones"><h4>Neue Gebiete</h4><p>Mount Hyjal · Zephras Isle · Riverglades</p></article><article class="vg-pvp"><span class="vg-world-symbol">${icon('shield')}</span><div><h4>Darkspear Islands</h4><p>Neues Schlachtfeld · 15 gegen 15</p></div></article><a class="vg-roadmap" href="#roadmap"><span>Was kommt als Nächstes?<b>Zur Forever-Roadmap</b></span>${arrow}</a></div>
+-      </div><details class="vg-races"><summary>Völker &amp; Klassenkombinationen <span>Vorläufige Übersicht</span>${icon('chevron')}</summary><div class="vg-race-content"><div><h4>In der Übersicht genannt</h4><p>Zwerg–Schamane, Mensch–Jäger, Untoter–Paladin, Gnom–Priester und Ork–Magier.</p><p>Himmelsgeborene: Krieger, Jäger, Schurke und Druide; zusätzlich nennt die Übersicht Schamane auf Horde- und Magier auf Allianz-Seite.</p><a href="${source}" ${ext}>Zur Originalübersicht ${arrow}</a></div><div><h4>Detailguides können abweichen</h4><p>Der Frost-Guide listet auch Windshaper-Skyborne auf Horde-Seite; der Demonology-Guide zusätzlich Troll–Hexenmeister. Diese Angaben sind noch nicht vollständig mit der Übersicht abgestimmt.</p><a href="${base}class-guides/frost-mage/" ${ext}>Frost-Guide ${arrow}</a><a href="${base}class-guides/demonology-warlock/" ${ext}>Demonology-Guide ${arrow}</a></div></div></details>
++      </div><details class="vg-races"><summary>Völker &amp; Klassenkombinationen <span>Vorläufige Übersicht</span>${icon('chevron')}</summary><div class="vg-race-content"><div><h4>In der Übersicht genannt</h4><p>Zwerg–Schamane, Mensch–Jäger, Untoter–Paladin, Gnom–Priester, Ork–Magier und Troll–Hexenmeister.</p><p>Himmelsgeborene: Krieger, Jäger, Schurke und Druide; zusätzlich nennt die Übersicht Schamane auf Horde- und Magier auf Allianz-Seite.</p><a href="${source}" ${ext}>Zur Originalübersicht ${arrow}</a></div><div><h4>Detailguides können abweichen</h4><p>Bei Skyborne weichen die Quellen weiterhin ab: Die Übersicht nennt Magier auf Allianz-Seite, der Frost-Guide führt zusätzlich Windshaper-Skyborne auf Horde-Seite. Troll–Hexenmeister steht inzwischen auch in der Übersicht.</p><a href="${base}class-guides/frost-mage/" ${ext}>Frost-Guide ${arrow}</a><a href="${base}class-guides/demonology-warlock/" ${ext}>Demonology-Guide ${arrow}</a></div></div></details>
+     </section>`:''}
+-    <footer class="vg-source"><span>${icon('shield')}</span><p><strong>Transparent statt endgültig.</strong> Zusammenfassung und Verlinkungen nach wowtbc.gg. Am 20.09.2026 geprüft; die Übersichtsseite selbst nennt weiterhin den 15.09.2026 als Änderungsdatum. Beta-Builds, Völkerangaben und Ausrüstung sind vorläufig.</p><a href="${source}" ${ext}>Quelle öffnen ${arrow}</a></footer>
++    <footer class="vg-source"><span>${icon('shield')}</span><p><strong>Quellenstand:</strong> Klassenguides, Tools und Dungeon-Loot am 11.11.2026 mit wowtbc.gg abgeglichen. Die Übersichtsseite nennt weiterhin den 15.09.2026 als eigenes Änderungsdatum. Heilungsempfehlungen, einzelne Völkerangaben und Ausrüstungsbewertungen enthalten noch vorläufige Angaben.</p><a href="${source}" ${ext}>Quelle öffnen ${arrow}</a></footer>
+   </section>`;
+ }
++
+ if(!window.__visionGuidesV5){
+   window.__visionGuidesV5=true;
+   document.addEventListener('click',function(event){
+@@ -1665,8 +1742,9 @@
+ function detail(id) {
+   const p=state.players.find(p=>p.id===id); if(!p) return;
+   if(state.edit) return;
++  const armory=foreverArmoryTarget(p.character);
+   const keys=['real','race','faction','className','spec','offSpec','role','status','prof1','prof2','guildPosition','destination'];
+-  openModal(p.character,`<div class="flexChips" style="margin-bottom:15px">${roleBadge(p.role)}${rankBadge(p.guildPosition)}</div><dl class="detailGrid">${keys.map(k=>`<div><dt>${fieldLabels[k]}</dt><dd>${k==='destination'?(p[k]==='active'?'Aktiver Kader':'Pause / Reserve'):value(p[k])}</dd></div>`).join('')}</dl><div class="formActions"><button class="btn" data-action="close">Schließen</button></div>`);
++  openModal(p.character,`<div class="flexChips" style="margin-bottom:15px">${roleBadge(p.role)}${rankBadge(p.guildPosition)}</div><dl class="detailGrid">${keys.map(k=>`<div><dt>${fieldLabels[k]}</dt><dd>${k==='destination'?(p[k]==='active'?'Aktiver Kader':'Pause / Reserve'):value(p[k])}</dd></div>`).join('')}</dl><div class="formActions"><a class="btn guildArmoryLink" href="${esc(armory.href)}" target="_blank" rel="noopener noreferrer">${icon('external')}${armory.direct?'Charakter-Armory':'Gilden-Armory'}</a><button class="btn" data-action="close">Schließen</button></div>`);
+ }
+ function options(values, selected, unknownOption = false) {
+   const options=unknownOption?['Unbekannt',...values]:values;
+@@ -1676,7 +1754,7 @@
+   const p=player||{character:'',real:'',ST:'B',AG:'A',race:'Unbekannt',faction:'Offen',className:'Unbekannt',spec:'',offSpec:'',role:'MDPS',status:'Unbekannt',prof1:'Unbekannt',prof2:'Unbekannt',guildPosition:'Probe',destination:'active'};
+   function input(key) {return `<label class="field">${fieldLabels[key]}<input name="${key}" value="${esc(p[key])}" maxlength="100" ${key==='character'?'required':''}></label>`;}
+   function select(key,choices,unknownOption=false) {return `<label class="field">${fieldLabels[key]}<select name="${key}">${options(choices,p[key],unknownOption)}</select></label>`;}
+-  openModal(player?`${p.character} bearbeiten`:'Neuen Spieler anlegen',`<form id="player-form" data-id="${esc(p.id||'')}"><div class="formGrid">${input('character')}${input('real')}${select('race',Object.keys(RACES),true)}${select('faction',['Offen','Allianz','Horde'])}${select('className',classesFor(p.race,p.faction),true)}${select('role',p.className==='Unbekannt'?ROLES:Object.keys(CLASSES[p.className].specs))}${select('spec',['',...specsFor(p.className,p.role)])}${select('offSpec',['','Keinen',...allSpecs(p.className)])}${select('prof1',PROFESSIONS,true)}${select('prof2',PROFESSIONS,true)}${select('guildPosition',RANKS)}${select('status',['Unbekannt','Sicher'])}${input('ST')}${input('AG')}<label class="field">Kaderbereich<select name="destination"><option value="active" ${p.destination==='active'?'selected':''}>Aktiver Kader</option><option value="pause" ${p.destination==='pause'?'selected':''}>Pause / Reserve</option></select></label></div><div class="error" role="alert" hidden></div><div class="formActions">${player?`<button type="button" class="btn danger" data-action="delete" data-id="${esc(p.id)}">${icon('trash')}Löschen</button>`:''}<button type="button" class="btn ghost" data-action="close">Abbrechen</button><button type="submit" class="btn primary">${icon('save')}Speichern</button></div></form>`);
++  openModal(player?`${p.character} bearbeiten`:'Neuen Spieler anlegen',`<form id="player-form" data-id="${esc(p.id||'')}"><div class="formGrid">${input('character')}${input('real')}${select('race',Object.keys(RACES),true)}${select('faction',['Offen','Allianz','Horde'])}${select('className',classesFor(p.race,p.faction),true)}${select('role',p.className==='Unbekannt'?ROLES:Object.keys(CLASSES[p.className].specs))}${select('spec',['',...specsFor(p.className,p.role)])}${select('offSpec',['','Keinen',...allSpecs(p.className)])}${select('prof1',PROFESSIONS,true)}${select('prof2',PROFESSIONS,true)}${select('guildPosition',RANKS)}${select('status',['Unbekannt','Sicher'])}<input type="hidden" name="ST" value="${esc(p.ST||'')}"><input type="hidden" name="AG" value="${esc(p.AG||'')}"><label class="field">Kaderbereich<select name="destination"><option value="active" ${p.destination==='active'?'selected':''}>Aktiver Kader</option><option value="pause" ${p.destination==='pause'?'selected':''}>Pause / Reserve</option></select></label></div><div class="error" role="alert" hidden></div><div class="formActions">${player?`<button type="button" class="btn danger" data-action="delete" data-id="${esc(p.id)}">${icon('trash')}Löschen</button>`:''}<button type="button" class="btn ghost" data-action="close">Abbrechen</button><button type="submit" class="btn primary">${icon('save')}Speichern</button></div></form>`);
+   const form=document.getElementById('player-form');
+   form.elements.spec.options[0].textContent='Unbekannt';
+   form.elements.offSpec.options[0].textContent='Unbekannt';
